@@ -1,0 +1,2484 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://nus-cs2030s.github.io/2324-s1/labs/lab7-question.html">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Lab 7: To Infinity and Beyond - CS2030S Programming Methodology II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="light-green">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-7-to-infinity-and-beyond" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="CS2030S Programming Methodology II" class="md-header__button md-logo" aria-label="CS2030S Programming Methodology II" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CS2030S Programming Methodology II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 7: To Infinity and Beyond
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="CS2030S Programming Methodology II" class="md-nav__button md-logo" aria-label="CS2030S Programming Methodology II" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CS2030S Programming Methodology II
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0. Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-compiler.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Program and Compiler
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-type.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Variables and Types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-function.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-encapsulation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Encapsulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-infohiding.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Information Hiding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-tell-dont-ask.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Tell, Don't Ask
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-static-field.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Class Fields
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-static-method.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Class Methods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-composition.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Composition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-heap-stack.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Heap and Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-inheritance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Inheritance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-overriding.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Overriding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-overloading.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Overloading
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-polymorphism.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Polymorphism
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-dynamic-binding.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Method Invocation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-lsp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. LSP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-abstract.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Abstract Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-interface.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-wrapper.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Wrapper Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-casting.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Run-Time Class Mismatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-variance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    21. Variance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-exception.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    22. Exceptions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-generics.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    23. Generics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-erasure.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    24. Type Erasure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-unchecked.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    25. Unchecked Warnings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-wildcard.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    26. Wildcards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-inference.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    27. Type Inference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-immutability.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    28. Immutability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29-nested-classes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    29. Nested Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30-functions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    30. Side Effect-Free Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31-box-maybe.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    31. Box and Maybe
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32-lazy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    32. Lazy Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../33-infinitelist.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    33. Infinite List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../34-stream.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    34. Streams in Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../35-logger.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    35. Loggable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../36-monad.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    36. Monad
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../37-parallel.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    37. Parallel Streams
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../38-thread.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    38. Threads
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../39-async.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    39. Asynchronous Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40-forkjoin.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    40. Fork and Join
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Lab Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Lab Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environments.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programming Environments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unix CLI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unix CLI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unix/background.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Background
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unix/essentials.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Essentials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unix/advanced.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Vim
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Vim
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/philosophy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Background
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/setup.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/quick-lessons.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lessons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/tips.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/plugins.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/cheatsheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cheat Sheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Java Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../style.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding Style
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javadoc.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JavaDoc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lab-7-to-infinity-and-beyond">Lab 7: To Infinity and Beyond</h1>
+<div class="admonition abstract">
+<p class="admonition-title">Basic Information</p>
+<ul>
+<li><strong>Deadline:</strong> 7 November 2023, Tuesday, 23:59 SST</li>
+<li><strong>Marks:</strong> 20</li>
+<li><strong>Weightage:</strong> 2%</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Prerequisite</p>
+<ul>
+<li>Caught up to <a href="../34-stream.html">Unit 34</a> of Online Notes.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Files</p>
+<p>In the directory, you should see the following files:</p>
+<ul>
+<li><strong>Java Files:</strong><ul>
+<li><code>cs2030s/fp/BooleanCondition.class</code>: A <code>BooleanCondition</code> interface.</li>
+<li><code>cs2030s/fp/Combiner.java</code>: A <code>Combiner</code> interface.</li>
+<li><code>cs2030s/fp/Consumer.class</code>: A <code>Consumer</code> interface.</li>
+<li><code>cs2030s/fp/Producer.class</code>: A <code>Producer</code> interface.</li>
+<li><code>cs2030s/fp/Transformer.class</code>: A <code>Transfomer</code> interface.</li>
+<li><code>cs2030s/fp/Maybe.class</code> and <code>cs2030s/fp/Maybe$None.class</code>: A <code>Maybe</code> class.</li>
+<li><code>cs2030s/fp/Lazy.class</code>: A <code>Lazy</code> class.</li>
+<li><code>cs2030s/fp/InfiniteList.java</code>: A template for <code>InfiniteList</code> class.</li>
+<li><code>CS2030STest.java</code>: The main tester class.</li>
+<li><code>Test1.java</code> - <code>Test6.java</code>: A tester.</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="preliminary">Preliminary</h2>
+<p>This is a follow-up from Lab 6.  In Lab 6, we have constructed a generic class <code>Lazy&lt;T&gt;</code> using <code>Maybe&lt;T&gt;</code>.  Now we are going to combine them into a <code>Lazy&lt;Maybe&lt;T&gt;&gt;</code> to build an infinite list.  We need the <code>Lazy&lt;..&gt;</code> because we want our infinite list to be lazily evaluated.  We need the <code>Maybe&lt;T&gt;</code> because the value may be present or may be missing due to <code>filter</code>.  Recap that in the lecture notes we use the <code>null</code> value to indicate missing values because:</p>
+<ol>
+<li>We need a value that all possible generic type <code>T</code> has.</li>
+<li>We need a value that indicates a value should not be included.</li>
+</ol>
+<p>The only solution was to use <code>null</code> because there is no other value that satisfies these two conditions.  Of course, it will be better if we have a <em>second</em> <code>null</code> value (<em>maybe we call it</em> <code>None</code> <em>like in Python, heeeyyy wait a minute, that's our</em> <code>None&lt;T&gt;</code>) to indicate this, but unfortunately we do not have such value.  That is why we need to use <code>Maybe&lt;T&gt;</code>.</p>
+<p>If you have not finished Lab 6, do not worry, we give a possible implementation of Lab 6 as a class file.  Note that this class file was compiled on PE node using Java 17 compiler.  If you are not using Java 17 or if you are not working on the PE node, you may get different result.  Unlikely, but the possibility is there.</p>
+<h3 id="maybe-class">Maybe Class</h3>
+<p>The class <code>Maybe&lt;T&gt;</code> has the following <code>public</code> methods.  You cannot use any methods that are not <code>public</code> from outside the package.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>static &lt;T&gt; Maybe&lt;T&gt; of(T val)</code></td>
+<td>Creates a <code>Maybe&lt;T&gt;</code> with the given content <code>val</code> if <code>val</code> is not <code>null</code>.  Otherwise, returns the shared instance of <code>None&lt;?&gt;</code>.</td>
+</tr>
+<tr>
+<td><code>static &lt;T&gt; Maybe&lt;T&gt; some(T val)</code></td>
+<td>Creates a <code>Maybe&lt;T&gt;</code> with the given content <code>val</code> which may be <code>null</code>.</td>
+</tr>
+<tr>
+<td><code>static &lt;T&gt; Maybe&lt;T&gt; none()</code></td>
+<td>Creates a <code>Maybe&lt;T&gt;</code> without any content, this is guaranteed to return the shared instance of <code>None&lt;?&gt;</code>.</td>
+</tr>
+<tr>
+<td><code>String toString()</code></td>
+<td>Returns the string representation of <code>Maybe&lt;T&gt;</code>.</td>
+</tr>
+<tr>
+<td><code>boolean equals(Object obj)</code></td>
+<td><ul><li><code>Maybe&lt;T&gt;</code>: Returns <code>true</code> if the content is equal to the content of <code>obj</code>.  Otherwise returns <code>false</code>.</li><li><code>None&lt;T&gt;</code>: Returns <code>true</code> if <code>obj</code> is also <code>None&lt;T&gt;</code>.  Otherwise returns <code>false</code>.</li></ul></td>
+</tr>
+<tr>
+<td><code>&lt;U&gt; Maybe&lt;U&gt; map</code><br><code>(Transformer&lt;? super T, ? extends U&gt; fn)</code></td>
+<td><ul><li><code>Maybe&lt;T&gt;</code>: Create a new instance of <code>Maybe&lt;T&gt;</code> by applying the transformer <code>fn</code> to the content and wrapping it in <code>Maybe&lt;T&gt;</code>. <del>If the result of applying the transformer is <code>null</code>, returns <code>None&lt;T&gt;</code>.</del>  <mark>It will never return <code>None&lt;T&gt;</code> to allow for our <code>InfiniteList&lt;T&gt;</code> to contain <code>null</code>.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></mark></li><li><code>None&lt;T&gt;</code>: Returns <code>None&lt;T&gt;</code>.</li></ul></td>
+</tr>
+<tr>
+<td><code>Maybe&lt;T&gt; filter</code><br><code>(BooleanCondition&lt;? super T&gt; pred)</code></td>
+<td><ul><li><code>Maybe&lt;T&gt;</code>: If the content is not <code>null</code> and <code>pred.test(content)</code> returns <code>true</code>, we return the current instance.  Otherwise, returns <code>None&lt;T&gt;</code>.</li><li><code>None&lt;T&gt;</code>: Returns <code>None&lt;T&gt;</code>.</li></ul></td>
+</tr>
+<tr>
+<td><code>&lt;U&gt; Maybe&lt;U&gt; flatmap</code><br><code>(Transformer&lt;? super T, ? extends Maybe&lt;? extends U&gt;&gt; fn)</code></td>
+<td><ul><li><code>Maybe&lt;T&gt;</code>: Create a new instance of <code>Maybe&lt;T&gt;</code> by applying the transformer <code>fn</code> to the content <em>without</em> wrapping it in <code>Maybe&lt;T&gt;</code> as <code>fn</code> already returns <code>Maybe&lt;U&gt;</code>.</li><li><code>None&lt;T&gt;</code>: Returns <code>None&lt;T&gt;</code>.</li></ul></td>
+</tr>
+<tr>
+<td><code>T orElse(Producer&lt;? extends T&gt; prod)</code></td>
+<td><ul><li><code>Maybe&lt;T&gt;</code>: Returns the content (<em>even if it is</em> <code>null</code>).</li><li><code>None&lt;T&gt;</code>: Returns the value produced by the producer <code>prod</code>.</li></ul></td>
+</tr>
+<tr>
+<td><code>void ifPresent(Consumer&lt;? super T&gt; cons)</code></td>
+<td><ul><li><code>Maybe&lt;T&gt;</code>: Pass the content to the consumer <code>cons</code>.</li><li><code>None&lt;T&gt;</code>: Do nothing.</li></ul></td>
+</tr>
+</tbody>
+</table>
+<h3 id="lazy-class">Lazy Class</h3>
+<p>The class <code>Lazy&lt;T&gt;</code> has the following <code>public</code> methods.  You cannot use any methods that are not <code>public</code> from outside the package.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>static &lt;T&gt; Lazy&lt;T&gt; of(T val)</code></td>
+<td>Creates a <code>Lazy&lt;T&gt;</code> with the given content <code>val</code> already evaluated.</td>
+</tr>
+<tr>
+<td><code>static &lt;T&gt; Lazy&lt;T&gt; of(Producer&lt;? extends T&gt; prod)</code></td>
+<td>Creates a <code>Lazy&lt;T&gt;</code> with the content not yet evaluated and will be evaluated using the given producer.</td>
+</tr>
+<tr>
+<td><code>boolean equals(Object obj)</code></td>
+<td>Returns <code>true</code> if the content is equal to the content of <code>obj</code>.  Otherwise returns <code>false</code>.  This <strong>forces</strong> evaluation of the content.</td>
+</tr>
+<tr>
+<td><code>&lt;U&gt; Lazy&lt;U&gt; map</code><br><code>(Transformer&lt;? super T, ? extends U&gt; fn)</code></td>
+<td>Lazily maps the content using the given transformer.</td>
+</tr>
+<tr>
+<td><code>Lazy&lt;Boolean&gt; filter</code><br><code>(BooleanCondition&lt;? super T&gt; pred)</code></td>
+<td>Lazily test if the value passes the test or not and returns a <code>Lazy&lt;Boolean&gt;</code> to indicate the result.</td>
+</tr>
+<tr>
+<td><code>&lt;U&gt; Lazy&lt;U&gt; flatmap</code><br><code>(Transformer&lt;? super T, ? extends Lazy&lt;? extends U&gt;&gt; fn)</code></td>
+<td>Lazily creates a new instance of <code>Lazy&lt;T&gt;</code> by applying the transformer <code>fn</code> to the content without wrapping it in another <code>Lazy&lt;..&gt;</code>.</td>
+</tr>
+<tr>
+<td><code>T get()</code></td>
+<td>Evaluates (<em>if not yet evaluated, otherwise do not evaluate again</em>) and returns the content.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="infinity">Infinity</h3>
+<p>You have seen in class a poorly implemented version of <code>InfiniteList</code>. Recall that there are two issues: (i) It uses <code>null</code> to represent a missing value. This design prevents us from having <code>null</code> as elements in the list; (ii) Produced values are not memoized. This design results in repeated computation of the same value.</p>
+<p>Fortunately, you have built <code>Maybe&lt;T&gt;</code> in Lab 5, which will solve (i), and <code>Lazy&lt;T&gt;</code> in Lab 6, which will solve (ii). We will use them to build a better version of <code>InfiniteList</code> here.</p>
+<p>You are required to implement a single <code>InfiniteList</code> class as part of the <code>cs2030s.fp</code> package with only two instance fields. No other instance fields are needed and allowed. There is also a single class field.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">InfiniteList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Lazy</span><span class="o">&lt;</span><span class="n">Maybe</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Lazy</span><span class="o">&lt;</span><span class="n">InfiniteList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tail</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">InfiniteList</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">SENTINEL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">InfiniteList</span><span class="o">&lt;?&gt;</span><span class="p">)</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Sentinel</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Please take note of the following constraints.</p>
+<div class="admonition danger">
+<p class="admonition-title">Constraints</p>
+<p>We will recap some of the constraints for our labs so far.</p>
+<ul>
+<li>You are <strong>NOT</strong> allowed to use any raw types.</li>
+<li><code>@SuppressWarnings</code> must be used responsibly, in the smallest scope, and commented.</li>
+</ul>
+<p>Additionally, you have the following constraints for this lab.</p>
+<ul>
+<li>You are <strong>NOT</strong> allowed to use <code>java.util.stream.Stream</code>.</li>
+<li>You are <strong>NOT</strong> allowed to add new classes (<em>nested or otherwise</em>).</li>
+<li>You are <strong>NOT</strong> allowed to add new methods in the <code>InfiniteList</code> (<em>not even private methods</em>).</li>
+<li>You are <strong>NOT</strong> allowed to use conditional statement (<em>e.g.,</em> <code>if</code>-<code>else</code>) or conditional expression (<em>e.g.,</em> <code>?:</code> <em>operator</em>).<ul>
+<li>Unless otherwise stated.</li>
+</ul>
+</li>
+<li>You are <strong>NOT</strong> allowed to use loops (<em>e.g., while-loop or for-loop</em>).<ul>
+<li>You may, however, use <em>recursion</em> (<em>but possibly without conditionals</em>).</li>
+</ul>
+</li>
+<li>There must only be a single <strong>instance</strong> of <code>Sentinel</code>.</li>
+</ul>
+</div>
+<p>However, as a relaxation, you are already given the most flexible type.</p>
+<div class="admonition info">
+<p class="admonition-title">Flexible Type</p>
+<p>The type signature in the templates are already the most flexible types.  You have suffered enough thinking about more flexible type in the past two labs.  The focus here is about laziness.</p>
+</div>
+<h3 id="the-basics">The Basics</h3>
+<p>You are already given most of the implementations including <code>head()</code>, <code>tail()</code>, <code>map(..)</code>, and <code>filter(..)</code>.  Please study them carefully.  Additionally, to help with debugging, a <code>toString()</code> has already been provided for you.  Lastly, there are three factory methods for <code>InfiniteList</code>, namely <code>generate(..)</code>, <code>iterate(..)</code>, and <code>sentinel()</code>.  The last one creates an empty list.</p>
+<p>As we also want to limit our infinite list to a potentially finite list, we have provided the <code>Sentinel</code> class.  This class is rather straightforward as it overrides all of the methods in <code>InfiniteList&lt;T&gt;</code>.  However, in most cases, it simply returns itself (<em>through the use of</em> <code>InfiniteList.&lt;Object&gt;sentinel()</code>) or throw an exception.</p>
+<p>You can test the initial implementation by running <code>Test1.java</code> to <code>Test3.java</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>$ javac -Xlint:rawtypes cs2030s/fp/*java
+$ javac -Xlint:rawtypes Test1.java
+$ javac -Xlint:rawtypes Test2.java
+$ javac -Xlint:rawtypes Test3.java
+$ java Test1
+$ java Test2
+$ java Test3
+</code></pre></div></td></tr></table></div>
+<h3 id="documenting-your-code">Documenting Your Code</h3>
+<p>Now that we are beginning to build our own package that others can use, we should start to produce documentation on our code.</p>
+<p>From Lab 7 onwards, you are required to document your classes and methods with Javadoc comments. You have seen examples from the skeleton code in Lab 1 given earlier. For more details, see the <a href="../javadoc.html">JavaDoc</a> guide. The checkstyle tool now checks for JavaDoc-related style as well.</p>
+<p>For Lab 7, you should write javadoc documentation for all methods in <code>InfiniteList.java</code>. Documenting the code your wrote previously for Lab 5 is encouraged but optional.</p>
+<h2 id="task-1-document-the-remaining-methods">Task 1: Document the Remaining Methods</h2>
+<p>First order of business is to document the remaining methods.  We have provided some documentations on some of the codes as example.  You should also double-check that the provided documentations satisfies the style guide.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$ javac cs2030s/fp/InfiniteList.java
+$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml cs2030s/fp/InfiniteList.java
+$ javadoc -quiet -private -d docs cs2030s/fp/InfiniteList.java
+</code></pre></div></td></tr></table></div>
+<h2 id="task-2-limit-and-tolist">Task 2: Limit and ToList</h2>
+<p>The <code>Sentinel</code> class is not only an indication of an empty list but because our idea of an <code>InfiniteList</code> is the value (<em>or value wrapped in</em> <code>Lazy</code> <em>and</em> <code>Maybe</code>, <em>i.e., the head</em>) and the rest of the list (<em>which is another</em> <code>InfiniteList</code>), an empty list is also an indicator for the end of the list.  Given a <code>Sentinel</code>, we can now write two methods:</p>
+<ol>
+<li>Implement the method <code>InfiniteList&lt;T&gt; limit(long n)</code> in <code>InfiniteList</code>.<ul>
+<li>The method takes in a number <code>n</code>.</li>
+<li>The method returns a new <code>InfiniteList</code> that is lazily computed which is the <em>truncation</em> of the <code>InfiniteList</code> to a finite list with <em>at most</em> <code>n</code> elements.</li>
+<li>The method should not count the elements that are filtered out by <code>filter</code> (<em>if any</em>).</li>
+<li>The method is <strong>allowed</strong> to use conditional statement/expression.</li>
+</ul>
+</li>
+<li>Override the method <code>InfiniteList&lt;T&gt; limit(long n)</code> in <code>Sentinel</code>.<ul>
+<li>The method takes in a number <code>n</code>.</li>
+<li>Determine the appropriate behaviour for this.</li>
+</ul>
+</li>
+<li>Implement the method <code>List&lt;T&gt; toList()</code> in <code>InfiniteList</code>.<ul>
+<li>The method takes in no parameter.</li>
+<li>The method returns a new <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html"><code>List&lt;T&gt;</code></a> (<em>should really just be</em> <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html"><code>ArrayList&lt;T&gt;</code></a>) which is a collection elements of the <code>InfiniteList</code> in the same order as they appear in the <code>InfiniteList</code>.</li>
+</ul>
+</li>
+<li>Override the method <code>InfiniteList&lt;T&gt; toList()</code> in <code>Sentinel</code>.<ul>
+<li>The method takes in no parameter.</li>
+<li>Determine the appropriate behaviour for this.</li>
+</ul>
+</li>
+</ol>
+<h3 id="sample-usage">Sample Usage</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span></pre></div></td><td class="code"><div><pre><span></span><code>jshell&gt; import cs2030s.fp.BooleanCondition
+jshell&gt; import cs2030s.fp.InfiniteList
+jshell&gt; import cs2030s.fp.Transformer
+jshell&gt; import cs2030s.fp.Producer
+
+jshell&gt; InfiniteList.sentinel().limit(4).isSentinel()
+$.. ==&gt; true
+jshell&gt; InfiniteList.iterate(1, x -&gt; x + 1).limit(0).isSentinel()
+$.. ==&gt; true
+jshell&gt; InfiniteList.iterate(1, x -&gt; x + 1).limit(1).isSentinel()
+$.. ==&gt; false
+jshell&gt; InfiniteList.iterate(1, x -&gt; x + 1).limit(10).isSentinel()
+$.. ==&gt; false
+jshell&gt; InfiniteList.iterate(1, x -&gt; x + 1).limit(-1).isSentinel()
+$.. ==&gt; true
+jshell&gt; InfiniteList.iterate(1, x -&gt; x + 1).limit(0).isSentinel()
+$.. ==&gt; true
+jshell&gt; InfiniteList.iterate(1, x -&gt; x + 1).limit(1).isSentinel()
+$.. ==&gt; false
+jshell&gt; InfiniteList.iterate(1, x -&gt; x + 1).limit(10).isSentinel()
+$.. ==&gt; false
+
+jshell&gt; InfiniteList.generate(() -&gt; 1).limit(4)
+$.. ==&gt; [? ?]
+jshell&gt; InfiniteList.iterate(1, x -&gt; x + 1).limit(4)
+$.. ==&gt; [[1] ?]
+jshell&gt; InfiniteList.iterate(1, x -&gt; x + 1).limit(1).head()
+$.. ==&gt; 1
+jshell&gt; InfiniteList.iterate(1, x -&gt; x + 1).limit(4).head()
+$.. ==&gt; 1
+
+jshell&gt; &lt;T&gt; T run(Producer&lt;T&gt; p) {
+   ...&gt;   try {
+   ...&gt;     return p.produce();
+   ...&gt;   } catch (Exception e) {
+   ...&gt;     System.out.println(e);
+   ...&gt;     return null;
+   ...&gt;   }
+   ...&gt; }
+
+jshell&gt; run(() -&gt; InfiniteList.iterate(1, x -&gt; x + 1).limit(1).tail().head());
+java.util.NoSuchElementException
+$.. ==&gt; null
+jshell&gt; run(() -&gt; InfiniteList.iterate(1, x -&gt; x + 1).limit(0).head()); 
+java.util.NoSuchElementException
+$.. ==&gt; null
+jshell&gt; run(() -&gt; InfiniteList.iterate(1, x -&gt; x + 1).limit(4).tail().tail().head());
+$.. ==&gt; 3
+jshell&gt; run(() -&gt; InfiniteList.iterate(1, x -&gt; x + 1).limit(4).limit(1).tail().head());
+java.util.NoSuchElementException
+$.. ==&gt; null
+jshell&gt; run(() -&gt; InfiniteList.iterate(1, x -&gt; x + 1).limit(1).limit(4).tail().head());
+java.util.NoSuchElementException
+$.. ==&gt; null
+
+jshell&gt; run(() -&gt; InfiniteList.iterate(1, x -&gt; x + 1).filter(x -&gt; x % 2 == 0).limit(0).head());
+java.util.NoSuchElementException
+$.. ==&gt; null
+jshell&gt; run(() -&gt; InfiniteList.iterate(1, x -&gt; x + 1).filter(x -&gt; x % 2 == 0).limit(1).head());
+$.. ==&gt; 2
+jshell&gt; run(() -&gt; InfiniteList.iterate(1, x -&gt; x + 1).limit(1).filter(x -&gt; x % 2 == 0).head());
+java.util.NoSuchElementException
+$.. ==&gt; null
+jshell&gt; run(() -&gt; InfiniteList.iterate(1, x -&gt; x + 1).limit(2).filter(x -&gt; x % 2 == 0).head());
+$.. ==&gt; 2
+
+jshell&gt; run(() -&gt; InfiniteList.iterate(&quot;A&quot;, s -&gt; s + &quot;Z&quot;).limit(2).map(s -&gt; s.length()).head());
+$.. ==&gt; 1
+jshell&gt; run(() -&gt; InfiniteList.iterate(&quot;A&quot;, s -&gt; s + &quot;Z&quot;).limit(2).map(s -&gt; s.length()).tail().head());
+$.. ==&gt; 2
+jshell&gt; run(() -&gt; InfiniteList.iterate(&quot;A&quot;, s -&gt; s + &quot;Z&quot;).limit(2).map(s -&gt; s.length()).tail().tail().head());
+java.util.NoSuchElementException
+$.. ==&gt; null
+
+jshell&gt; run(() -&gt; InfiniteList.iterate(&quot;A&quot;, s -&gt; s + &quot;Z&quot;).map(s -&gt; s.length()).limit(2).head());
+$.. ==&gt; 1
+jshell&gt; run(() -&gt; InfiniteList.iterate(&quot;A&quot;, s -&gt; s + &quot;Z&quot;).map(s -&gt; s.length()).limit(2).tail().head());
+$.. ==&gt; 2
+jshell&gt; run(() -&gt; InfiniteList.iterate(&quot;A&quot;, s -&gt; s + &quot;Z&quot;).map(s -&gt; s.length()).limit(2).tail().tail().head());
+java.util.NoSuchElementException
+$.. ==&gt; null
+
+jshell&gt; InfiniteList.&lt;String&gt;sentinel().toList()
+$.. ==&gt; []
+jshell&gt; InfiniteList.iterate(&quot;A&quot;, s -&gt; s + &quot;Z&quot;).map(s -&gt; s.length()).limit(2).toList()
+$.. ==&gt; [1, 2]
+jshell&gt; InfiniteList.iterate(&quot;A&quot;, s -&gt; s + &quot;Z&quot;).limit(2).map(s -&gt; s.length()).toList()
+$.. ==&gt; [1, 2]
+jshell&gt; InfiniteList.iterate(1, x -&gt; x + 1).limit(2).filter(x -&gt; x % 2 == 0).toList()
+$.. ==&gt; [2]
+jshell&gt; InfiniteList.iterate(1, x -&gt; x + 1).filter(x -&gt; x % 2 == 0).limit(2).toList()
+$.. ==&gt; [2, 4]
+jshell&gt; InfiniteList.iterate(0, x -&gt; x + 1).filter(x -&gt; x &gt; 10).map(x -&gt; x.hashCode() % 30).filter(x -&gt; x &lt; 20).limit(5).toList()
+$.. ==&gt; [11, 12, 13, 14, 15]
+jshell&gt; Random rng = new Random(1)
+jshell&gt; InfiniteList.generate(() -&gt; rng.nextInt() % 100).filter(x -&gt; x &gt; 10).limit(4).toList()
+$.. ==&gt; [76, 95, 26, 69]
+jshell&gt; InfiniteList.generate(() -&gt; null).limit(4).limit(1).toList()
+$.. ==&gt; [null]
+jshell&gt; InfiniteList.generate(() -&gt; null).limit(1).limit(4).toList()
+$.. ==&gt; [null]
+</code></pre></div></td></tr></table></div>
+<p>You can test your code by running the <code>Test4.java</code> provided. The following should compile without errors or warnings. Make sure your code follows the CS2030S Java style. </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>$ javac -Xlint:rawtypes cs2030s/fp/*java
+$ javac -Xlint:rawtypes Test4.java
+$ java Test4
+$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml cs2030s/fp/InfiniteList.java
+$ javadoc -quiet -private -d docs cs2030s/fp/InfiniteList.java
+</code></pre></div></td></tr></table></div>
+<h2 id="task-3-it-takes-a-while">Task 3: It Takes a While</h2>
+<p>Now we want to implement the <code>takeWhile</code> method.</p>
+<ol>
+<li>Implement the method <code>InfiniteList&lt;T&gt; takeWhile(BooleanCondition&lt;? super T&gt; pred)</code> in <code>InfiniteList</code>.<ul>
+<li>The method takes in a <code>BooleanCondition</code>.</li>
+<li>The method returns an <code>InfiniteList</code> that is a truncated version of the initial <code>InfiniteList</code>.<ul>
+<li>The method truncates the infinite list as soon as it finds an element that evaluates the condition to <code>false</code>.</li>
+</ul>
+</li>
+<li>The method is <strong>allowed</strong> to use conditional statement/expression.</li>
+</ul>
+</li>
+<li>Override the method <code>InfiniteList&lt;T&gt; takeWhile(BooleanCondition&lt;? super T&gt; pred)</code> in <code>Sentinel</code>.<ul>
+<li>The method takes in a <code>BooleanCondition</code>.</li>
+<li>Determine the appropriate behaviour for this.</li>
+</ul>
+</li>
+</ol>
+<h3 id="sample-usage_1">Sample Usage</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span></pre></div></td><td class="code"><div><pre><span></span><code>jshell&gt; import cs2030s.fp.InfiniteList;
+jshell&gt; import cs2030s.fp.Transformer;
+jshell&gt; import cs2030s.fp.Producer;
+jshell&gt; import cs2030s.fp.BooleanCondition;
+
+jshell&gt; Transformer&lt;Integer, Integer&gt; incr = x -&gt; { 
+   ...&gt;   System.out.println(&quot;    iterate: &quot; + x);
+   ...&gt;   return x + 1;
+   ...&gt; };
+jshell&gt; BooleanCondition&lt;Integer&gt; lessThan0 = x -&gt; { 
+   ...&gt;   System.out.println(&quot;    takeWhile x &lt; 0: &quot; + x);
+   ...&gt;   return x &lt; 0;
+   ...&gt; };
+jshell&gt; BooleanCondition&lt;Integer&gt; lessThan2 = x -&gt; { 
+   ...&gt;   System.out.println(&quot;    takeWhile x &lt; 2: &quot; + x);
+   ...&gt;   return x &lt; 2;
+   ...&gt; };
+jshell&gt; BooleanCondition&lt;Integer&gt; lessThan5 = x -&gt; { 
+   ...&gt;   System.out.println(&quot;    takeWhile x &lt; 5: &quot; + x);
+   ...&gt;   return x &lt; 5;
+   ...&gt; };
+jshell&gt; BooleanCondition&lt;Integer&gt; lessThan10 = x -&gt; { 
+   ...&gt;   System.out.println(&quot;    takeWhile x &lt; 10: &quot; + x);
+   ...&gt;   return x &lt; 10;
+   ...&gt; };
+jshell&gt; BooleanCondition&lt;Integer&gt; isEven = x -&gt; { 
+   ...&gt;   System.out.println(&quot;    filter x % 2 == 0: &quot; + x);
+   ...&gt;   return x % 2 == 0;
+   ...&gt; };
+
+jshell&gt; &lt;T&gt; T run(Producer&lt;T&gt; p) {
+   ...&gt;   try {
+   ...&gt;     return p.produce();
+   ...&gt;   } catch (Exception e) {
+   ...&gt;     System.out.println(e);
+   ...&gt;     return null;
+   ...&gt;   }
+   ...&gt; }
+
+jshell&gt; InfiniteList.&lt;Integer&gt;sentinel().takeWhile(lessThan0).isSentinel()
+$.. ==&gt; true
+jshell&gt; InfiniteList.iterate(1, incr).takeWhile(lessThan0).isSentinel()
+$.. ==&gt; false
+jshell&gt; InfiniteList.iterate(1, incr).takeWhile(lessThan2).isSentinel()
+$.. ==&gt; false
+jshell&gt; InfiniteList.iterate(1, incr).takeWhile(lessThan5).takeWhile(lessThan2).toList()
+    takeWhile x &lt; 5: 1
+    takeWhile x &lt; 2: 1
+    iterate: 1
+    takeWhile x &lt; 5: 2
+    takeWhile x &lt; 2: 2
+$.. ==&gt; [1]
+jshell&gt; InfiniteList.iterate(1, incr).filter(isEven).takeWhile(lessThan10).toList()
+    filter x % 2 == 0: 1
+    iterate: 1
+    filter x % 2 == 0: 2
+    takeWhile x &lt; 10: 2
+    iterate: 2
+    filter x % 2 == 0: 3
+    iterate: 3
+    filter x % 2 == 0: 4
+    takeWhile x &lt; 10: 4
+    iterate: 4
+    filter x % 2 == 0: 5
+    iterate: 5
+    filter x % 2 == 0: 6
+    takeWhile x &lt; 10: 6
+    iterate: 6
+    filter x % 2 == 0: 7
+    iterate: 7
+    filter x % 2 == 0: 8
+    takeWhile x &lt; 10: 8
+    iterate: 8
+    filter x % 2 == 0: 9
+    iterate: 9
+    filter x % 2 == 0: 10
+    takeWhile x &lt; 10: 10
+$.. ==&gt; [2, 4, 6, 8]
+
+jshell&gt; run(() -&gt; InfiniteList.generate(() -&gt; 2).takeWhile(lessThan0));
+$.. ==&gt; [? ?]
+jshell&gt; run(() -&gt; InfiniteList.iterate(1, incr).takeWhile(lessThan0));
+$.. ==&gt; [? ?]
+jshell&gt; run(() -&gt; InfiniteList.iterate(1, incr).takeWhile(lessThan0).head());
+    takeWhile x &lt; 0: 1
+java.util.NoSuchElementException
+$.. ==&gt; null
+jshell&gt; run(() -&gt; InfiniteList.iterate(1, incr).takeWhile(lessThan2).head());
+    takeWhile x &lt; 2: 1
+$.. ==&gt; 1
+jshell&gt; run(() -&gt; InfiniteList.iterate(1, incr).takeWhile(lessThan2).tail().head());
+    takeWhile x &lt; 2: 1
+    iterate: 1
+    takeWhile x &lt; 2: 2
+java.util.NoSuchElementException
+$.. ==&gt; null
+jshell&gt; run(() -&gt; InfiniteList.iterate(1, incr).takeWhile(lessThan2).takeWhile(lessThan0).head());
+    takeWhile x &lt; 2: 1
+    takeWhile x &lt; 0: 1
+java.util.NoSuchElementException
+$.. ==&gt; null
+jshell&gt; run(() -&gt; InfiniteList.iterate(1, incr).takeWhile(lessThan0).takeWhile(lessThan2).head());
+    takeWhile x &lt; 0: 1
+java.util.NoSuchElementException
+$.. ==&gt; null
+jshell&gt; run(() -&gt; InfiniteList.iterate(1, incr).takeWhile(lessThan5).takeWhile(lessThan2).tail().head());
+    takeWhile x &lt; 5: 1
+    takeWhile x &lt; 2: 1
+    iterate: 1
+    takeWhile x &lt; 5: 2
+    takeWhile x &lt; 2: 2
+java.util.NoSuchElementException
+$.. ==&gt; null
+jshell&gt; run(() -&gt; InfiniteList.iterate(1, incr).filter(isEven).takeWhile(lessThan10).head());
+    filter x % 2 == 0: 1
+    iterate: 1
+    filter x % 2 == 0: 2
+    takeWhile x &lt; 10: 2
+$.. ==&gt; 2
+jshell&gt; run(() -&gt; InfiniteList.iterate(1, incr).filter(isEven).takeWhile(lessThan10).tail().head());
+    filter x % 2 == 0: 1
+    iterate: 1
+    filter x % 2 == 0: 2
+    takeWhile x &lt; 10: 2
+    iterate: 2
+    filter x % 2 == 0: 3
+    iterate: 3
+    filter x % 2 == 0: 4
+    takeWhile x &lt; 10: 4
+$.. ==&gt; 4
+
+jshell&gt; InfiniteList&lt;Integer&gt; list = InfiniteList.iterate(1, incr).takeWhile(lessThan10)
+
+jshell&gt; list.tail().tail().head()
+    takeWhile x &lt; 10: 1
+    iterate: 1
+    takeWhile x &lt; 10: 2
+    iterate: 2
+    takeWhile x &lt; 10: 3
+$.. ==&gt; 3
+jshell&gt; list.head()
+$.. ==&gt; 1
+jshell&gt; list
+list ==&gt; [[1] [[2] [[3] ?]]]
+
+jshell&gt; list.tail().head()
+$.. ==&gt; 2
+jshell&gt; list.tail().tail().tail().head()
+    iterate: 3
+    takeWhile x &lt; 10: 4
+$.. ==&gt; 4
+jshell&gt; list
+list ==&gt; [[1] [[2] [[3] [[4] ?]]]]
+</code></pre></div></td></tr></table></div>
+<p>You can test your code by running the <code>Test5.java</code> provided. The following should compile without errors or warnings. Make sure your code follows the CS2030S Java style. </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>$ javac -Xlint:rawtypes cs2030s/fp/*java
+$ javac -Xlint:rawtypes Test5.java
+$ java Test5
+$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml cs2030s/fp/InfiniteList.java
+$ javadoc -quiet -private -d docs cs2030s/fp/InfiniteList.java
+</code></pre></div></td></tr></table></div>
+<h2 id="task-4-folding-it-right">Task 4: Folding it Right</h2>
+<p>In the lecture, we discuss about the behaviour of <code>reduce</code> method.  We mentioned that it is equivalent to fold left.  In a fold left, given a list <code>[v1, v2, v3, v4]</code>, an initial value <code>e</code> and the operation <code>+</code>, the operation performed is as follows:</p>
+<p><code>(((e + v1) + v2) + v3) + v4</code></p>
+<p>What we want is the opposite.  We want to do a fold but from the right.  In a fold left, given a list <code>[v1, v2, v3, v4]</code>, an initial value <code>e</code> and the operation <code>+</code>, the operation performed is as follows:</p>
+<p><code>(v1 + (v2 + (v3 + (v4 + e))))</code></p>
+<p>Since the order of operations are different, the result may potentially be different.  For <code>+</code>, these two are going to produce the same result.  But for <code>-</code>, the result will be different.  Note that this is a <em>terminal operation</em> in Java stream.</p>
+<ol>
+<li>Implement the method <code>&lt;U&gt; U foldRight(U id, Combiner&lt;? super T, U, U&gt; acc)</code> in <code>InfiniteList</code>.<ul>
+<li>The method takes in the initial value <code>id</code> and an accumulator <code>acc</code>.<ul>
+<li>Note that <code>Combiner&lt;T, S, R&gt;</code> is a new interface with the implementation given in <code>cs2030s/fp/Combiner.java</code>.</li>
+<li>It has a single abstract method <code>R combine(T arg1, S arg2)</code>.</li>
+</ul>
+</li>
+<li>The method returns the result of fold right of type <code>U</code> performed on the <code>InfiniteList</code> with the given accumulator <code>acc</code> starting from the initial value <code>id</code>.<ul>
+<li>Note that the name <code>id</code> is used as typically the initial value is the <em>identity</em> operation of the accumulator.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Override the method <code>&lt;U&gt; U foldRight(U id, Combiner&lt;? super T, U, U&gt; acc)</code> in <code>Sentinel</code>.<ul>
+<li>The method takes in the initial value <code>id</code> and an accumulator <code>acc</code>.</li>
+<li>Determine the appropriate behaviour for this.</li>
+</ul>
+</li>
+</ol>
+<h3 id="sample-usage_2">Sample Usage</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code>jshell&gt; import cs2030s.fp.InfiniteList;
+
+jshell&gt; InfiniteList.&lt;Integer&gt;sentinel().foldRight(0, (x, y) -&gt; x + y)
+$.. ==&gt; 0
+jshell&gt; InfiniteList.iterate(0, x -&gt; x + 1).limit(5).foldRight(0, (x, y) -&gt; x + y)
+$.. ==&gt; 10
+jshell&gt; InfiniteList.iterate(0, x -&gt; x + 1).limit(0).foldRight(0, (x, y) -&gt; x + y)
+$.. ==&gt; 0
+jshell&gt; InfiniteList.iterate(1, x -&gt; x + 1).map(x -&gt; x * x).limit(5).foldRight(1, (x, y) -&gt; x * y)
+$.. ==&gt; 14400
+jshell&gt; InfiniteList.iterate(1, x -&gt; x + 1).map(x -&gt; x * x).limit(5).foldRight(1, (x, y) -&gt; x - y)
+$.. ==&gt; 14
+jshell&gt; // the above is equivalent to (1 - (4 - (9 - (16 - (25 - 1)))))
+</code></pre></div></td></tr></table></div>
+<p>You can test your code by running the <code>Test6.java</code> provided. The following should compile without errors or warnings. Make sure your code follows the CS2030S Java style. </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>$ javac -Xlint:rawtypes cs2030s/fp/*java
+$ javac -Xlint:rawtypes Test6.java
+$ java Test6
+$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml cs2030s/fp/InfiniteList.java
+$ javadoc -quiet -private -d docs cs2030s/fp/InfiniteList.java
+</code></pre></div></td></tr></table></div>
+<h2 id="grading">Grading</h2>
+<p>This lab is worth 20 marks and contribute 2% to your Lab Assignment component.  The marking scheme is as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Marks</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Correctness</td>
+<td>16 marks</td>
+<td></td>
+</tr>
+<tr>
+<td>Documentation</td>
+<td>4 marks</td>
+<td></td>
+</tr>
+<tr>
+<td>Style</td>
+<td><em>up to -4 marks</em></td>
+<td><em>Negative Marking</em></td>
+</tr>
+</tbody>
+</table>
+<p>Correctness mark will be about general correctness with some manual checking, doing the proper check (<em>e.g.,</em> <code>null</code> <em>check</em>), laziness, not using conditional statement/expression, not using loops, <em>etc</em>.  This means that each <code>TestX.java</code> may carry different weights.  While we try to give you all the possible tests, there may be some tests we missed.  You should not hardcode any test cases.</p>
+<p>Additionally, if your code cannot compile <strong>for any reason</strong>, you will get <strong>0 mark for the lab</strong>.  We will check for compilation with the following command.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>javac<span class="w"> </span>-Xlint:unchecked<span class="w"> </span>-Xlint:rawtypes<span class="w"> </span>cs2030s/fp/*.java
+</code></pre></div></td></tr></table></div>
+<p>We may make additional deductions for other issues or errors in your code such as run-time error, failure to follow instructions, failure to correct errors from Lab 5, not commenting <code>@SuppressWarning</code>, misuse of <code>@SuppressWarning</code> (<em>unnecessary, not in smallest scope, etc</em>), having unnecessary conditional statements/expressions, etc.</p>
+<p>Note that style marks are no longer awarded. You should know how to follow the prescribed Java style by now. We will deduct up to 4 marks if there are serious violations of styles.</p>
+<h2 id="submission">Submission</h2>
+<p>To submit the lab, run the following command from the directory containing your lab 7 code.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>~cs2030s/submit-lab7
+</code></pre></div></td></tr></table></div>
+<p>Please check your repo after running the submission script to ensure that your files have been added correctly.  The URL to your repo is given after you run the submission script.</p>
+<div class="admonition danger">
+<p class="admonition-title">Do NOT Use Other Git Command</p>
+<p>While you may be familiar with git commands, please do not use them.  Please use only the submission script <code>submit-labX</code> to ensure that your submissions are recorded properly.</p>
+</div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Do not worry too much about this, we have already implemented <code>map</code> and <code>filter</code> for you.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright by Department of Computer Science, National University of Singapore 2023
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "toc.follow", "toc.integrate", "content.code.annotate", "content.code.copy"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

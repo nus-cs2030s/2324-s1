@@ -1,0 +1,2021 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://nus-cs2030s.github.io/2324-s1/labs/lab1-question.html">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Lab 1: Network and Agents - CS2030S Programming Methodology II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="light-green">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-1-network-and-agents" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="CS2030S Programming Methodology II" class="md-header__button md-logo" aria-label="CS2030S Programming Methodology II" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CS2030S Programming Methodology II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 1: Network and Agents
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="CS2030S Programming Methodology II" class="md-nav__button md-logo" aria-label="CS2030S Programming Methodology II" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CS2030S Programming Methodology II
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0. Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-compiler.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Program and Compiler
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-type.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Variables and Types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-function.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-encapsulation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Encapsulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-infohiding.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Information Hiding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-tell-dont-ask.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Tell, Don't Ask
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-static-field.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Class Fields
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-static-method.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Class Methods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-composition.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Composition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-heap-stack.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Heap and Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-inheritance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Inheritance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-overriding.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Overriding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-overloading.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Overloading
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-polymorphism.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Polymorphism
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-dynamic-binding.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Method Invocation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-lsp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. LSP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-abstract.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Abstract Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-interface.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-wrapper.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Wrapper Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-casting.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Run-Time Class Mismatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-variance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    21. Variance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-exception.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    22. Exceptions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-generics.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    23. Generics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-erasure.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    24. Type Erasure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-unchecked.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    25. Unchecked Warnings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-wildcard.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    26. Wildcards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-inference.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    27. Type Inference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-immutability.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    28. Immutability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29-nested-classes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    29. Nested Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30-functions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    30. Side Effect-Free Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31-box-maybe.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    31. Box and Maybe
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32-lazy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    32. Lazy Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../33-infinitelist.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    33. Infinite List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../34-stream.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    34. Streams in Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../35-logger.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    35. Loggable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../36-monad.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    36. Monad
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../37-parallel.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    37. Parallel Streams
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../38-thread.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    38. Threads
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../39-async.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    39. Asynchronous Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40-forkjoin.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    40. Fork and Join
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Lab Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Lab Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environments.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programming Environments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unix CLI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unix CLI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unix/background.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Background
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unix/essentials.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Essentials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unix/advanced.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Vim
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Vim
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/philosophy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Background
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/setup.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/quick-lessons.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lessons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/tips.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/plugins.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/cheatsheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cheat Sheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Java Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../style.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding Style
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javadoc.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JavaDoc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lab-1-network-and-agents">Lab 1: Network and Agents</h1>
+<div class="admonition abstract">
+<p class="admonition-title">Basic Information</p>
+<ul>
+<li><strong>Deadline:</strong> 5 September 2023, Tuesday, 23:59 SST</li>
+<li><strong>Marks:</strong> 20</li>
+<li><strong>Weightage:</strong> 2%</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Prerequisite</p>
+<ul>
+<li>Completed Lab 0.</li>
+<li>Caught up to <a href="../17-abstract.html">Unit 17</a> of Online Notes.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Files</p>
+<p>In the directory, you should see the following files:</p>
+<ol>
+<li><strong>Java Files:</strong><ul>
+<li><code>Agent.java</code>: An abstract agent.</li>
+<li><code>Buffer.java</code>: A message buffer.</li>
+<li><code>Network.java</code>: A network simulation.</li>
+<li><code>NetworkAgent.java</code>: A badly written agent for the network simulation.</li>
+<li><code>Sender.java</code>: A potential first step.</li>
+<li><code>Lab1.java</code>: The main program.</li>
+</ul>
+</li>
+<li><strong>Input/Output Files:</strong><ul>
+<li><code>inputs/Lab1.k.in</code> for the input files.</li>
+<li><code>outputs/Lab1.k.out</code> for the output files.</li>
+</ul>
+</li>
+<li><strong>Bash Script:</strong><ul>
+<li><code>test.sh</code>: Testing <code>Lab1</code> by comparing the output when running <code>Lab0</code> on <code>inputs/Lab0.k.in</code> with the expected output in <code>outputs/Lab0.k.out</code>.</li>
+</ul>
+</li>
+</ol>
+</div>
+<h2 id="background">Background</h2>
+<p>A network can be simulated by the behavior of sender and receiver.  A sender can send message(s) and a receiver can receive message(s).  The communications are done via a common channel.  Since the channel is common, it has a bandwidth (<em>i.e., the maximum number of messages that can be in the channel at the same time</em>).  This can be represented by the buffer.</p>
+<p><img alt="Network" src="Network.png" /></p>
+<p>So as an abstraction, senders write into the buffer if it can (<em>i.e., the buffer is not full</em>) and receiver receive from the buffer if it can (<em>i.e., the buffer is not empty</em>).  Note that this is a simplified view as the sender does not send a message to a specific receiver.  The receiver also do not expect to receive a message from a specific sender.</p>
+<p>The notion of "time" in this simulation is an abstract concept.  Time may not run linearly but you are guaranteed that time will order the events.  In particular, an agent acting at time <span class="arithmatex">\(n\)</span> will act before an agent acting at time <span class="arithmatex">\(m\)</span> if and only if <span class="arithmatex">\(n &lt; m\)</span>.  You are also guaranteed that no two agents will act at the same time.</p>
+<p>To make it more concrete, consider the following set of events.  In this example, our buffer capacity is 4.</p>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Agent</th>
+<th>Event</th>
+<th>Buffer #1</th>
+<th>Buffer #2</th>
+<th>Buffer #3</th>
+<th>Buffer #4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>Receiver #1</td>
+<td>Cannot receive message</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Sender #1</td>
+<td>Send message "CS"</td>
+<td>"CS"</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Sender #2</td>
+<td>Send message "2030S"</td>
+<td>"CS"</td>
+<td>"2030S"</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Receiver #2</td>
+<td>Receive message "CS"</td>
+<td>"2030S"</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Sender #3</td>
+<td>Send message "is"</td>
+<td>"2030S"</td>
+<td>"is"</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Sender #4</td>
+<td>Send message "very"</td>
+<td>"2030S"</td>
+<td>"is"</td>
+<td>"very"</td>
+<td>-</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Sender #5</td>
+<td>Send message "very"</td>
+<td>"2030S"</td>
+<td>"is"</td>
+<td>"very</td>
+<td>"very"</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Sender #6</td>
+<td>Cannot send message "hard"</td>
+<td>"2030S"</td>
+<td>"is"</td>
+<td>"very</td>
+<td>"very"</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Receiver #3</td>
+<td>Receive message "2030S"</td>
+<td>"is"</td>
+<td>"very</td>
+<td>"very"</td>
+<td>-</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Sender #7</td>
+<td>Send message "easy"</td>
+<td>"is"</td>
+<td>"very</td>
+<td>"very"</td>
+<td>"easy"</td>
+</tr>
+</tbody>
+</table>
+<p>What you are doing is similar to this, but the behavior of the agents are going to be slightly different.  contiIn Lab 1, we provide you with four classes: <code>Agent</code>, <code>Buffer</code>, <code>Network</code>, <code>NetworkAgent</code>.</p>
+<h3 id="the-agent-class">The <code>Agent</code> Class</h3>
+<div class="admonition failure">
+<p class="admonition-title">Do NOT Edit This Class</p>
+<p>The following is for your information only.  This restriction may be lifted in future labs.</p>
+</div>
+<p>The <code>Agent</code> class is an abstract class with a single field called <code>actionTime</code>.  This field indicates the time in which the agent will take an action (<em>i.e., will have its</em> <code>act(Buffer)</code> <em>method invoked</em>).  The <code>Agent::toString()</code> method returns the time as a string enclosed in parentheses and prefixed with <code>@</code> (<em>e.g.,</em> <code>(@2)</code>).  The <code>Agent::getTime(int)</code> method returns the time plus some increment.  So it is not a pure accessor.</p>
+<p>This class has a single abstract method <code>Agent::act(Buffer)</code>.  The method accepts a buffer which may be mutated by the action.  The method may return <code>null</code> or may generate another agent that act at a later time.  Since this method is abstract, all subclasses of this class will have to override this method.</p>
+<p>You may ignore the superclass <code>Comparable&lt;Agent&gt;</code> for now.  It will be made clearer later.  What you need to know about that is simply that we need to override the method <code>compareTo(Agent)</code>.  This method is used by <code>PriorityQueue</code> to determine the ordering of agents.</p>
+<h4 id="class-diagram">Class Diagram</h4>
+<p><img alt="Agent" src="Agent.svg" width="250px" /></p>
+<h3 id="the-buffer-class">The <code>Buffer</code> Class</h3>
+<div class="admonition failure">
+<p class="admonition-title">Do NOT Edit This Class</p>
+<p>The following is for your information only.  This restriction may be lifted in future labs.</p>
+</div>
+<p>The <code>Buffer</code> class encapsulates a buffer.  This is an abstraction of the channel with some capacity.  A buffer can be created by specifying the maximum capacity of the buffer.</p>
+<p>It has two important methods:</p>
+<ul>
+<li><code>boolean Buffer::send(String)</code> that allows agents to send a non-null message (<code>String</code>) by writing it into the buffer if possible.<ul>
+<li>The message is stored at the back of the buffer.</li>
+<li>If the message is stored in the buffer, the method returns <code>true</code>.</li>
+<li>Otherwise, the method returns <code>false</code>.</li>
+</ul>
+</li>
+<li><code>String Buffer::receive()</code> that allows agents to receive a message (<code>String</code>) from the buffer if possible.<ul>
+<li>If there is a message, the message will be returned from the front of the buffer.</li>
+<li>If there is no message, a <code>null</code> value will be returned.</li>
+</ul>
+</li>
+</ul>
+<h4 id="class-diagram_1">Class Diagram</h4>
+<p><img alt="Buffer" src="Buffer.svg" width="250px" /></p>
+<h3 id="the-network-class">The <code>Network</code> Class</h3>
+<div class="admonition success">
+<p class="admonition-title">Edit This Class</p>
+<p>Please read carefully about what you need to do.</p>
+</div>
+<p>This class is at the core of the simulation of a network.  It has several functionalities.</p>
+<h4 id="initializing-the-starting-state-of-the-network">Initializing the Starting State of the Network</h4>
+<p>A network is initialized with an ordered sequence of agents to act.  The ordering will be based in ascending order of action time of the agent.  To initialize the network into some starting state, it will have to read the user input.  This is done in the method <code>void Network::init(Scanner)</code>.</p>
+<p>A <code>Scanner</code> is a class that allows us to read from user input.  It will read sequence of characters and potentially translate them into a primitive data type according to the method used.  We are only interested in reading until a separator (<em>white space, tabs, or newline</em>) is encountered.</p>
+<ul>
+<li><code>String Scanner::next()</code> reads until white space, tabs, or newline and returns the sequence of characters as a string.</li>
+<li><code>int Scanner::nextInt()</code> reads until white space, tabs, or newline and returns the sequence of characters as an integer.</li>
+</ul>
+<p>In the explanation below, <code>&lt;type&gt;</code> indicates a token (<em>ends with white space, tabs, or newline</em>) that can be represented as a given type.  We may optionally give it a name to be referred to later by <code>&lt;n : type&gt;</code>.  We may also write a specific character (<em>e.g.,</em> <code>CS2030S</code>) to mean that the input will be exactly that sequence of character.</p>
+<p>The expected input format is as follows.</p>
+<ul>
+<li>The first line is <code>&lt;n : int&gt;</code> where <code>n</code> is the capacity of the buffer.</li>
+<li>The next line is <code>&lt;m : int&gt;</code> where <code>m</code> is the number of agents.</li>
+<li>The next <code>m</code> lines is the input for the agents with the following possible format.<ul>
+<li><code>SS &lt;t : int&gt; &lt;msg : String&gt;</code><ul>
+<li><code>SS</code> represents a sender that sends a single message.</li>
+<li><code>t</code> represents the action time of this sender.</li>
+<li><code>msg</code> represents the message to be sent by this sender.</li>
+</ul>
+</li>
+<li><code>MS &lt;t : int&gt; &lt;k : int&gt; &lt;msg_1 : String&gt; &lt;...&gt; &lt;msg_k : String&gt;</code><ul>
+<li><code>MS</code> represents a sender that sends multiple messages.</li>
+<li><code>t</code> represents the action time of this sender.</li>
+<li><code>k</code> represents the number of messages.</li>
+<li><code>msg_1</code> ... <code>msg_k</code> represents the messages to be sent by this sender.</li>
+</ul>
+</li>
+<li><code>SR &lt;t : int&gt; &lt;nt : int&gt;</code><ul>
+<li><code>SR</code> represents a receiver that receives a single message.</li>
+<li><code>t</code> represents the action time of this receiver.</li>
+<li><code>nt</code> represents the increment of time (<em>to be explained later</em>).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The last <code>m</code> lines of the input will be ordered in ascending order of action time.</p>
+<div class="admonition example">
+<p class="admonition-title">Sample Input</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>2
+3
+SS 1 CS
+MS 3 2 2030 S
+SR 4 5
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>The buffer has capacity 2 (<em>first line</em>)</li>
+<li>There are 3 agents (<em>second line</em>)<ul>
+<li>The first agent is a sender that will send a single message "CS" at time 1 (<em>third line</em>).</li>
+<li>The second agent is a sender that will send two messages "2030" and "S" both at time 3 (<em>fourth line</em>).</li>
+<li>The third agent is a receiver that will receive one message at time 4 and will subsequently try to receive more messages every 5 time units until it fails to receive a message (<em>fifth line</em>).</li>
+</ul>
+</li>
+</ul>
+</div>
+<h4 id="running-the-network-simulation">Running the Network Simulation</h4>
+<p>The simulation runs by looking at the <code>PriorityQueue</code>.  You do not have to worry about the implementation of this.  What you need to know is that the method <code>PriorityQueue::poll()</code> will return the next agent to take action according to their action time.</p>
+<p>We then perform the action of this agent by invoking <code>agent.act(buffer)</code>.  This method may return a new agent.  If it does, we add this to newly created agent into the queue again.  At this point, the queue may reorder its content to ensure that the next agent taken out is really the agent that is supposed to take action.</p>
+<p>After each agent performs its task, the current state of the agent is printed using <code>System.out.println(agent)</code>.  Recap that this will implicitly invoke the <code>toString()</code> method.</p>
+<h4 id="your-task">Your Task</h4>
+<p>Currently, the class uses <code>NetworkAgent</code> class.  As you will learn later, the <code>NetworkAgent</code> class is badly written.  You will need to remove that class.</p>
+<p>Your task for this <code>Network</code> class is to replace the use of <code>NetworkAgent</code> class with whatever classes you created to replace <code>NetworkAgent</code>.</p>
+<h3 id="the-networkagent-class">The <code>NetworkAgent</code> Class</h3>
+<div class="admonition success">
+<p class="admonition-title">Delete This Class</p>
+<p>Please read carefully about what you need to do.</p>
+</div>
+<p>The <code>NetworkAgent</code> class is very badly written class for agent.  It extends the abstract class <code>Agent</code> so that it can be used by <code>PriorityQueue&lt;Agent&gt;</code> but it does not follow the good OOP principles: <em>information hiding</em>, <em>tell, don't ask</em>, <em>LSP</em>, <em>polymorphism</em>, <em>etc</em>.</p>
+<h4 id="class-diagram_2">Class Diagram</h4>
+<p><img alt="Network Agent" src="NetworkAgent.svg" /></p>
+<h4 id="your-task_1">Your Task</h4>
+<p>We separate the agent into two broad class of agents called <strong>Sender</strong> and <strong>Receiver</strong>.  All initial <strong>Sender</strong> will have unique sequential id.  So the first sender will have id of 0, the second sender will have id of 1, and so on.  Similarly, all initial <strong>Receiver</strong> will have unique sequential id.  So if we have a sequence of: <em>sender</em>, <em>receiver</em>, <em>sender</em>.  Their id will be: <em>sender[0]</em>, <em>receiver[0]</em>, <em>sender[1]</em>.</p>
+<p>Note that the sequential id are only for the initial sender/receiver.  In particular, our current receiver produces another receiver with the same id but acting at a later time.</p>
+<p>The current implementation of <code>NetworkAgent</code> is a mix of three different agents:</p>
+<h5 id="single-sender-agent">Single Sender Agent</h5>
+<p>The action of this agent is to send a single message into the buffer if possible.  If the action fails (<em>e.g., the buffer is full</em>), then this sender does not perform anything.  The action of this sender does not generate additional agent.</p>
+<p>When printed, this agent remembers if it successfully send a message or not and prints accordingly.</p>
+<p><img alt="SS" src="SS.png" /></p>
+<h5 id="multi-sender-agent">Multi Sender Agent</h5>
+<p>The action of this agent is to send multiple messages into the buffer if possible.  As soon as the action fails (<em>e.g., it fails to send the second message out of four messages</em>), the agent will stop trying to send.  The action of this sender does not generate additional agent.</p>
+<p>When printed, this agent remembers how many messages it successfully sent and prints accordingly.</p>
+<p><img alt="MS" src="MS.png" /></p>
+<h5 id="single-receiver-agent">Single Receiver Agent</h5>
+<p>The action of this agent is to try to receive a single message from the buffer if possible.  If it receives a message, this receiver will generate a (<em>potentially the same</em>) receiver with the same id to act at another time.  The time is computed from the input <code>t</code> and <code>nt</code> of <code>SR</code>.  On the other hand, if it fails to receive a message (<em>e.g., the buffer is empty</em>), the agent will not generate additional agent.</p>
+<p>When printed, this agent remembers if it successfully received a message or not and prints accordingly.</p>
+<div class="admonition example">
+<p class="admonition-title">Single Receiver Example</p>
+<p>Consider part of the input:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>SR 4 5
+</code></pre></div></td></tr></table></div>
+<p>This creates a single receiver that is first activated at time 4.  Assume its id is 0 and we will denote this as (@4) Receiver[0].  So at time 4, this receiver may receive a message "CS2030S".  Once the message is received, a receiver with the same id will be returned by the action that will be activated at time 9 (<em>i.e., 4 + 5</em>).  In other words, this will be (@9) Receiver[0].  If this receiver then failed to receive a message, we may see the following output.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>  :
+(@4) Receiver[0] received &#39;CS2030S&#39;
+  :
+(@9) Receiver[0] failed to receive message
+  :
+</code></pre></div></td></tr></table></div>
+</div>
+<p><img alt="SR" src="SR.png" /></p>
+<h2 id="task-1-oop">Task 1: OOP</h2>
+<p>The <code>NetworkAgent</code> class is badly written.  Your main task is to rewrite this using OOP principles: <em>abstraction</em>, <em>encapsulation</em>, <em>information hiding</em>, <em>tell, don't ask</em>, <em>composition</em>, <em>inheritance</em>, <em>polymorphism</em>, <em>LSP</em>, <em>abstract class</em>, _etc.</p>
+<p>A brief overview:</p>
+<ul>
+<li>Group relevant fields and methods into new classes for encapsulation.</li>
+<li>Model "has a" relationship with composition.</li>
+<li>Model "is a" relationship with inheritance.</li>
+<li>Hide internal details for information hiding.</li>
+<li>Avoid accessor and mutators when possible and use tell, don't ask instead.</li>
+<li>Use polymorphism to make code more succinct and extendable in the future while adhering to LSP.</li>
+</ul>
+<p>Here are some hints:</p>
+<ul>
+<li>Think about the problem that you are solving: what are the nouns? These are good candidates for new classes.</li>
+<li>For each class, what are the attributes/properties relevant to the class? These are good candidates for fields in the class.</li>
+<li>Do the classes relate to each other via IS-A or HAS-A relationship?</li>
+<li>For each class, what are their responsibilities? What can they do? These are good candidates for methods in the class.</li>
+<li>How do the objects of each class interact? These are good candidates for public methods.</li>
+<li>What are some behavior that changes depending on the specific type of objects?</li>
+</ul>
+<p>Note that the goal of this lab and, and of CS2030S in general, is <em>NOT to solve the problem with the cleverest and the shortest piece of code possible</em>. For instance, you might notice that you can solve Lab 1 with only a few variables and an array. But such a solution is hard to extend and modify. In CS2030S, our goal is to produce software that can easily evolve and be modified, with a reduced risk of introducing bugs while doing so.</p>
+<p>Note that Lab 1 is the first of a series of labs, where we introduce new requirements or modify existing ones in every lab (<em>not unlike what software engineers face in the real world</em>). We will modify the behavior for the agents and buffer.  In particular, in the future,</p>
+<ul>
+<li>a different receiver may be added that tries to receive multiple messages with one of the following possible behavior.<ul>
+<li>Receive one at a time (<em>i.e., receive one now and act at a later time to receive again until a specified number of messages have been received</em>).</li>
+<li>Receive all at the same time.</li>
+</ul>
+</li>
+<li>a different sender may be added that retries sending messages as long as it failed to send messages until it is successful with the following possible behavior.<ul>
+<li>It may retry at a constant time.</li>
+<li>It may retry with longer time for each failure (<em>exponential backoff</em>).</li>
+</ul>
+</li>
+<li>a different buffer may be needed with the following behavior.<ul>
+<li>A priority buffer may be added with priority sender and/or receiver.</li>
+<li>A buffer with maximum capacity that depends on the number of characters in the channel instead of number of messages.</li>
+</ul>
+</li>
+</ul>
+<p>Note that not all of the above changes may be executed.  A mixture of those or similar changes may be executed instead.  Thus, making sure that your code will be able to adapt to the new problem statements is the key.  Trying to solve the lab without considering this and you will likely find yourself painted into a corner and have to re-write much of your solution to handle any new requirements.</p>
+<div class="admonition note">
+<p class="admonition-title">Termination</p>
+<p>You are guaranteed that the input will produce a simulation that will terminate <em>if implemented correctly</em>.  However, it is not guaranteed that the buffer will be empty at the end!</p>
+<p>Since an incorrect implementation has a potential to have an infinite loop, if your code does not terminate, you may force it to stop by pressing <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <span class="keys"><kbd class="key-c">C</kbd></span>.</p>
+</div>
+<h3 id="first-step">First Step</h3>
+<p>To help you in your design, we will show a potential first step.  This may not be the step that you choose in the end but it can be a candidate.  This step is taken based on the following specification:</p>
+<blockquote>
+<p>We separate the agent into two broad class of agents called <strong>Sender</strong> and <strong>Receiver</strong>.  All initial <strong>Sender</strong> will have unique sequential id.  So the first sender will have id of 0, the second sender will have id of 1, and so on.  Similarly, all initial <strong>Receiver</strong> will have unique sequential id.  So if we have a sequence of: <em>sender</em>, <em>receiver</em>, <em>sender</em>.  Their id will be: <em>sender[0]</em>, <em>receiver[0]</em>, <em>sender[1]</em>.</p>
+</blockquote>
+<p>This brings us to the creation of an <em>abstract</em> class <code>Sender</code> with a specific responsibilities of ensuring that in the normal case, the id of all sender will be sequential starting from 0.  You will see this class in the file <code>Sender.java</code>.</p>
+<p><img alt="Lab 01" src="Lab01.svg" width="250px" /></p>
+<p>From here, you may decide to continue this path by adding the other necessary classes or you may reject this design and come up with your own design.</p>
+<h2 id="workflow">Workflow</h2>
+<h3 id="compilation">Compilation</h3>
+<p>To compile your code,</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>javac<span class="w"> </span>*.java
+</code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You may want to make sure <strong><em>at least once</em></strong> before submission that you can compile from scratch by first removing all <code>.class</code> files.</p>
+</div>
+<h3 id="running-and-testing">Running and Testing</h3>
+<p>You should not test your code manually by entering the inputs.  Instead, enter the inputs into a file, and run</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>java<span class="w"> </span>Lab1<span class="w"> </span>&lt;<span class="w"> </span>file
+</code></pre></div></td></tr></table></div>
+<p>A set of test inputs is provided as part of the skeleton, named <code>Lab1.x.in</code> under the <code>inputs</code> directory.  You can run them with, for instance,</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>java<span class="w"> </span>Lab1<span class="w"> </span>&lt;<span class="w"> </span>inputs/Lab1.9.in
+</code></pre></div></td></tr></table></div>
+<p>You can save the output by redirecting it into a file (<em>e.g., a file called</em> <code>OUT</code>).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>java<span class="w"> </span>Lab1<span class="w"> </span>&lt;<span class="w"> </span>inputs/Lab1.9.in<span class="w"> </span>&gt;<span class="w"> </span>OUT
+</code></pre></div></td></tr></table></div>
+<p>You can then look for the difference using the <code>diff</code> command.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>diff<span class="w"> </span>OUT<span class="w"> </span>outputs/Lab1.9.out
+</code></pre></div></td></tr></table></div>
+<p>Alternatively, you can automatically test your code against all the given inputs/outputs by running.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>./test.sh<span class="w"> </span>Lab1
+</code></pre></div></td></tr></table></div>
+<p>or, you may need to specify the use of <code>bash</code> to run the <code>.sh</code> file.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>bash<span class="w"> </span>./test.sh<span class="w"> </span>Lab1
+</code></pre></div></td></tr></table></div>
+<h3 id="debugging">Debugging</h3>
+<p>The expected outputs are given in the <code>outputs</code> directory.  You can compare <code>OUT</code> with the expected output with <code>diff</code> or <code>vim</code>. Using <code>vim</code>,</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>vim<span class="w"> </span>-d<span class="w"> </span>OUT<span class="w"> </span>output/Lab1.9.out
+</code></pre></div></td></tr></table></div>
+<p>will open both files and highlight the differences.</p>
+<p>As the output becomes too long, you can focus on tracing a particular agent with the help of <code>grep</code>. Suppose you want to focus on what happened to Receiver #0 in <code>OUT</code>, run</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$ grep -i &#39;Receiver\[0\]&#39; OUT
+(@4) Receiver[0] received &#39;CS2030S&#39; 
+(@7) Receiver[0] received &#39;really&#39; 
+(@10) Receiver[0] received &#39;that&#39; 
+(@13) Receiver[0] received &#39;actually&#39; 
+(@16) Receiver[0] failed to receive message 
+</code></pre></div></td></tr></table></div>
+<h2 id="grading">Grading</h2>
+<p>This lab is worth 20 marks and contribute 2% to your Lab Assignment component.  The marking scheme is as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Sub-Component</th>
+<th>Marks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Correctness</td>
+<td></td>
+<td>4 marks</td>
+</tr>
+<tr>
+<td>OO Principles</td>
+<td></td>
+<td>16 marks</td>
+</tr>
+<tr>
+<td></td>
+<td><em>Encapsulation<br>Information Hiding<br>Polymorphism<br>Tell, Don't Ask<br>LSP</em></td>
+<td><em>2 marks<br>2 marks<br>4 marks<br>4 marks<br>4 marks</em></td>
+</tr>
+</tbody>
+</table>
+<p>Correctness mark will only be awarded if your code compiles and there are sufficient encapsulation (<em>i.e., you have created classes and used them</em>).  Note that the original code will have passed all test cases.  Additionally, if your code cannot compile <strong>for any reason</strong>, you will only get <strong>75%</strong> of the mark for OO principles.  This penalty will be increased in subsequent labs.</p>
+<p>We may make additional deductions for other issues or errors in your code such as run-time error, failure to follow instructions, etc.</p>
+<h2 id="submission">Submission</h2>
+<p>To submit the lab, run the following command from the directory containing your lab 1 code.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>~cs2030s/submit-lab1
+</code></pre></div></td></tr></table></div>
+<p>Please check your repo after running the submission script to ensure that your files have been added correctly.  The URL to your repo is given after you run the submission script.</p>
+<div class="admonition danger">
+<p class="admonition-title">Do NOT Use Other Git Command</p>
+<p>While you may be familiar with git commands, please do not use them.  Please use only the submission script <code>submit-labX</code> to ensure that your submissions are recorded properly.</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright by Department of Computer Science, National University of Singapore 2023
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "toc.follow", "toc.integrate", "content.code.annotate", "content.code.copy"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

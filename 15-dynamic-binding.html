@@ -1,0 +1,2068 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://nus-cs2030s.github.io/2324-s1/15-dynamic-binding.html">
+      
+      
+        <link rel="prev" href="14-polymorphism.html">
+      
+      
+        <link rel="next" href="16-lsp.html">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>15. Method Invocation - CS2030S Programming Methodology II</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="light-green">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unit-15-method-invocation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="CS2030S Programming Methodology II" class="md-header__button md-logo" aria-label="CS2030S Programming Methodology II" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CS2030S Programming Methodology II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              15. Method Invocation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="CS2030S Programming Methodology II" class="md-nav__button md-logo" aria-label="CS2030S Programming Methodology II" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CS2030S Programming Methodology II
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="00-overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0. Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01-compiler.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Program and Compiler
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02-type.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Variables and Types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03-function.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04-encapsulation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Encapsulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05-infohiding.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Information Hiding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06-tell-dont-ask.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Tell, Don't Ask
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="07-static-field.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Class Fields
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="08-static-method.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Class Methods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="09-composition.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Composition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10-heap-stack.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Heap and Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11-inheritance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Inheritance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12-overriding.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Overriding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="13-overloading.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Overloading
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="14-polymorphism.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Polymorphism
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    15. Method Invocation
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="15-dynamic-binding.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    15. Method Invocation
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-dynamic-binding-work" class="md-nav__link">
+    How does Dynamic Binding work?
+  </a>
+  
+    <nav class="md-nav" aria-label="How does Dynamic Binding work?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#during-compile-time" class="md-nav__link">
+    During Compile Time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#during-run-time" class="md-nav__link">
+    During Run Time
+  </a>
+  
+    <nav class="md-nav" aria-label="During Run Time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compile-time-step" class="md-nav__link">
+    Compile-Time Step
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-time-step" class="md-nav__link">
+    Run-Time Step
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compile-time-step_1" class="md-nav__link">
+    Compile-Time Step
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-time-step_1" class="md-nav__link">
+    Run-Time Step
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compile-time-step_2" class="md-nav__link">
+    Compile-Time Step
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compile-time-step_3" class="md-nav__link">
+    Compile-Time Step
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-time-step_2" class="md-nav__link">
+    Run-Time Step
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compile-time-step_4" class="md-nav__link">
+    Compile-Time Step
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-time-step_3" class="md-nav__link">
+    Run-Time Step
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invocation-of-class-methods" class="md-nav__link">
+    Invocation of Class Methods
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="16-lsp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. LSP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="17-abstract.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Abstract Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="18-interface.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="19-wrapper.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Wrapper Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="20-casting.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Run-Time Class Mismatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="21-variance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    21. Variance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="22-exception.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    22. Exceptions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="23-generics.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    23. Generics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="24-erasure.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    24. Type Erasure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="25-unchecked.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    25. Unchecked Warnings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="26-wildcard.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    26. Wildcards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="27-inference.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    27. Type Inference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="28-immutability.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    28. Immutability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="29-nested-classes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    29. Nested Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="30-functions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    30. Side Effect-Free Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="31-box-maybe.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    31. Box and Maybe
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="32-lazy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    32. Lazy Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="33-infinitelist.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    33. Infinite List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="34-stream.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    34. Streams in Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="35-logger.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    35. Loggable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="36-monad.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    36. Monad
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="37-parallel.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    37. Parallel Streams
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="38-thread.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    38. Threads
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="39-async.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    39. Asynchronous Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="40-forkjoin.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    40. Fork and Join
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Lab Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Lab Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="environments.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programming Environments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="github.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unix CLI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unix CLI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="unix/background.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Background
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="unix/essentials.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Essentials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="unix/advanced.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Vim
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Vim
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vim/philosophy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Background
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vim/setup.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vim/quick-lessons.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lessons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vim/tips.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vim/plugins.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vim/cheatsheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cheat Sheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Java Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="style.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding Style
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="javadoc.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JavaDoc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="unit-15-method-invocation">Unit 15: Method Invocation</h1>
+<div class="admonition abstract">
+<p class="admonition-title">Learning Objectives</p>
+<p>Students should</p>
+<ul>
+<li>understand the two step process that Java uses to determine which method implementation will be executed when a method is invoked.</li>
+<li>understand that Class Methods do not support dynamic binding.</li>
+</ul>
+</div>
+<h2 id="how-does-dynamic-binding-work">How does Dynamic Binding work?</h2>
+<p>We have seen that, with the power of dynamic binding and polymorphism, we can write succinct, future-proof code<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.  Recall that example below, where the magic happens in Line 4.  The method invocation <code>curr.equals(obj)</code> will call the corresponding implementation of the <code>equals</code> method depending on the run-time type of <code>curr</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// version 0.1 (with polymorphism)</span>
+<span class="kt">boolean</span><span class="w"> </span><span class="nf">contains</span><span class="p">(</span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">curr</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="hll"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">curr</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>How does dynamic binding work?  To be more precise, when the method <code>equals</code> is invoked on the target <code>curr</code>, how does Java decide which method implementation is this invocation bound to?  While we have alluded to the fact that the run-time type of the target <code>curr</code> plays a role, this is not the entire story.  Recall that we may have multiple versions of <code>equals</code> due to overloading.  So, Java also needs to decide, among the overloaded <code>equals</code>, which version of <code>equals</code> this particular invocation is bound to.</p>
+<p>This unit elaborates on Java's decision process to resolve which method implemented in which class should be executed when a method is invoked.  This process is a two-part process.  The first occurs during compilation<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>; the second during run time.</p>
+<h3 id="during-compile-time">During Compile Time</h3>
+<p>During compilation, Java determines the method descriptor of the method invoked, using the compile-time type of the target.  For example, in the line</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">curr</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>above, the target <code>curr</code> has the compile-time type <code>Object</code>.</p>
+<p>Let's generalize the compile-time type of the target to <span class="arithmatex">\(C\)</span>.  To determine the method descriptor, the compiler searches for all methods that can be <em>correctly</em> invoked on the given argument.  Note that by correctly invoked, we simply look at the method <strong>signature</strong> that can <em>accept</em> the given argument.  In other words, the type of parameter is the supertype<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> of the compile-time type of the argument.  This method signature may be declared in class <span class="arithmatex">\(C\)</span> or the parent of <span class="arithmatex">\(C\)</span>, or the grand-parent of <span class="arithmatex">\(C\)</span>, and so on until we reach the root <code>Object</code>.</p>
+<p>In the example above, we look at the class <code>Object</code>, and there is only one method called <code>equals</code>.  The method can be correctly invoked with one argument of type <code>Object</code>.</p>
+<p>What if there are multiple methods that can correctly accept the argument?  In this case, we choose the <em>most specific</em> one.</p>
+<div class="admonition note">
+<p class="admonition-title">More Specific</p>
+<p>Intuitively, a method <span class="arithmatex">\(M\)</span> is more specific than method <span class="arithmatex">\(N\)</span> if the arguments to <span class="arithmatex">\(M\)</span> can be passed to <span class="arithmatex">\(N\)</span> without compilation error.</p>
+<p>This may seem abstract so let's make it more concrete.  We will consider <span class="arithmatex">\(A &lt;: B &lt;: C\)</span>.  Consider two method signature below.</p>
+<ul>
+<li><code>foo(A)</code></li>
+<li><code>foo(C)</code></li>
+</ul>
+<p>Now we consider the <em>"arguments to the method"</em>:</p>
+<ul>
+<li>Arguments to <code>foo(A)</code>: type <code>A</code> and the subtype of <code>A</code>.</li>
+<li>Arguments to <code>foo(C)</code>: type <code>A</code>, type <code>B</code>, type <code>C</code>, and the subtype of <code>A</code>.</li>
+</ul>
+<p>Note that the argument to <code>foo(A)</code> (<em>i.e., type</em> <code>A</code> <em>and the subtype of</em> <code>A</code>) can be passed to <code>foo(C)</code> without any compilation error because <code>foo(C)</code> can accept both type <code>A</code> and the subtype of <code>A</code>.</p>
+<p>On the other hand, the argument to <code>foo(C)</code> cannot be passed to <code>foo(A)</code>.  Take, for instance, type <code>B</code>.  It cannot be passed to <code>foo(A)</code>.</p>
+<p>So, <code>foo(A)</code> is more specific than <code>foo(C)</code>.</p>
+</div>
+<p>For example, let's say a class <code>Circle</code> implements:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">boolean</span><span class="w"> </span><span class="nf">equals</span><span class="p">(</span><span class="n">Circle</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="p">}</span>
+
+<span class="nd">@Override</span>
+<span class="kt">boolean</span><span class="w"> </span><span class="nf">equals</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">..</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Then, <code>equals(Circle)</code> is more specific than <code>equals(Object)</code>.  Every <code>Circle</code> is an <code>Object</code>, but not every <code>Object</code> is a <code>Circle</code>.  Let's try to understand this in more details using the definition of "more specific" above.</p>
+<p>First, in the phrase <em>"if the arguments to <span class="arithmatex">\(M\)</span> can be passed to <span class="arithmatex">\(N\)</span> without compilation error"</em>, we need to find what arguments can be accepted by the methods we wish to compare.  In the case of <code>equals(Circle)</code>, it can accept <code>Circle</code> (<em>and all its subclasses</em>).  On the other hand, for <code>equals(Object)</code>, it can accept <code>Object</code> and also <code>Circle</code>.</p>
+<p>Now we simply have to test if <code>equals(Circle)</code> can accept whatever can be accepted by <code>equals(Object)</code> and vice versa.  So we test <code>equals(Circle)</code> and attempt to pass <code>Object</code> and <code>Circle</code> as argument (<em>since</em> <code>equals(Object)</code> <em>can accept both</em> <code>Object</code> <em>and</em> <code>Circle</code>).  It will pass on <code>Circle</code> but it will fail on <code>Object</code>.</p>
+<p>Similarly, we test <code>equals(Object)</code> and attempt to pass <code>Circle</code> (<em>since</em> <code>equals(Circle)</code> <em>can only accept</em> <code>Circle</code>).  There is definitely no compilation error here.  So now we have seen that if we set <span class="arithmatex">\(M\)</span> as the method <code>equals(Circle)</code> and <span class="arithmatex">\(N\)</span> as <code>equals(Object)</code>,</p>
+<blockquote>
+<p>the arguments to <span class="arithmatex">\(M\)</span> (<em>i.e.,</em> <code>equals(Circle)</code>, <em>the argument is</em> <code>Circle</code>) can be passed to <span class="arithmatex">\(N\)</span> (<em>i.e.,</em> <code>equals(Object)</code> <em>can accept</em> <code>Circle</code>) without compilation error.</p>
+</blockquote>
+<p>Therefore, <code>equals(Circle)</code> is more specific than <code>equals(Object)</code>.  There is a possibility that comparing only two arbitrary methods, we will find that none of the two methods is more specific!  For instance, given <code>S1</code> &lt;: <code>T</code> and <code>S2</code> &lt;: <code>T</code>, <code>foo(S1)</code> is not more specific than <code>foo(S2)</code> and <code>foo(S2)</code> is not more specific than <code>foo(S1)</code>.</p>
+<p>Once the method is determined, the method's descriptor (<em>return type and signature</em>) is stored in the generated code.</p>
+<p>In the example above, the method descriptor <code>boolean equals(Object)</code> will be stored in the generated binaries.  Note that it does not include information about the class that implements this method.  The class to take this method implementation from will be determined in Step 2 during run-time.</p>
+<h3 id="during-run-time">During Run Time</h3>
+<p>During execution, when a method is invoked, the method descriptor from Step 1 is first retrieved.  Then, the run-time type of the target is determined.</p>
+<p>Let the run-time type of the target be <span class="arithmatex">\(R\)</span>.  Java then looks for an <em>accessible</em> (<em>i.e., not</em> <code>private</code>) method with the matching descriptor in <span class="arithmatex">\(R\)</span>.  If no such method is found, the search will continue up the class hierarchy, first to the parent class of <span class="arithmatex">\(R\)</span>, then to the grand-parent class of <span class="arithmatex">\(R\)</span>, and so on, until we reach the root <code>Object</code>.  The first method implementation with a matching method descriptor found will be the one executed.</p>
+<p>For example, let's consider again the invocation in the highlighted line below again:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// version 0.1 (with polymorphism)</span>
+<span class="kt">boolean</span><span class="w"> </span><span class="nf">contains</span><span class="p">(</span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="hll"><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">curr</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">array</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">curr</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Let's say that <code>curr</code> points to a <code>Circle</code> object during run-time.  Suppose that the <code>Circle</code> class does not override the method <code>equals</code> in <code>Object</code>.  As a result, Java can't find a matching method descriptor <code>boolean equals(Object)</code> in the method <code>Circle</code>.  It then looks for the method in the parent of <code>Circle</code>, which is the class <code>Object</code>.  It finds the method <code>Object::equals(Object)</code> with a matching descriptor.  Thus, the method <code>Object::equals(Object)</code> is executed.</p>
+<p>Now, suppose that <code>Circle</code> overrides the method <code>Object::equals(Object)</code> with its own <code>Circle::equals(Object)</code> method.  Since Java starts searching from the class <code>Circle</code>, it finds the method <code>Circle::equals(Object)</code> that matches the descriptor.  In this case, <code>curr.target(obj)</code> will invoke the method <code>Circle::equals(Object)</code> instead.</p>
+<div class="admonition info">
+<p class="admonition-title">Steps</p>
+<p>The information above may be difficult to parse and understand.  So let's try to distill its essence into actionable steps.  In this example, we want to figure out the method invoked on <code>obj.foo(arg)</code>.</p>
+<h4 id="compile-time-step">Compile-Time Step</h4>
+<ol>
+<li>Determine the compile-time type of <code>obj</code> (<em>i.e.,</em> <code>CTT(obj)</code>).</li>
+<li>Determine the compile-time type of <code>arg</code> (<em>i.e.,</em> <code>CTT(arg)</code>).</li>
+<li>Determine all the methods with the name <code>foo</code> that are <em>accessible</em> in <code>CTT(obj)</code>.<ul>
+<li>This includes the parent of <code>CTT(obj)</code>, grand-parent of <code>CTT(obj)</code>, and so on.</li>
+</ul>
+</li>
+<li>Determine all the methods from Step 3 that can accept <code>CTT(arg)</code>.<ul>
+<li>Correct number of parameters.</li>
+<li>Correct parameter types (<em>i.e., supertype of</em> <code>CTT(arg)</code>).</li>
+</ul>
+</li>
+<li>Determine the <em>most specific</em> method from Step 4.<ul>
+<li>If there is <strong>no</strong> most specific method, fail with compilation error.</li>
+<li>Otherwise, record the method descriptor.</li>
+</ul>
+</li>
+</ol>
+<h4 id="run-time-step">Run-Time Step</h4>
+<ol>
+<li>Retrieve the method descriptor obtained from <em>compile-time step</em>.</li>
+<li>Determine the run-time type of <code>obj</code> (<em>i.e.,</em> <code>RTT(obj)</code>).</li>
+<li>Starting from <code>RTT(obj)</code>, find the first method that match the method descriptor as retrieved from Step 1.<ul>
+<li>If not found, check in the parent of <code>RTT(obj)</code>.</li>
+<li>If not found, check in the grand-parent of <code>RTT(obj)</code>.</li>
+<li>:</li>
+<li>If not found, check in the root <code>Object</code>.</li>
+<li>If not found, run-time error (<em>only happen on weird cases that we will not discuss as it involves shenanigans</em>).</li>
+</ul>
+</li>
+</ol>
+<p>To see the steps in action, please follow the examples below.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Although the steps above are actionable, it is still instructive to at least see how the steps are carried out.  We will be using the following classes in our example.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">U</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="n">U</span><span class="w"> </span><span class="n">u1</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="n">u2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">T</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="n">S</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">S</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="n">U</span><span class="w"> </span><span class="n">u</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Consider the following variables.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">U</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">T</span><span class="p">();</span>
+<span class="n">S</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">S</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div>
+<p>In the last example, we will also show a tabular method that simplifies the steps.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">u.foo(s)</label><label for="__tabbed_1_2">u.foo(u)</label><label for="__tabbed_1_3">s.foo(s)</label><label for="__tabbed_1_4">s.foo(s) Tabular</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<h4 id="compile-time-step_1">Compile-Time Step</h4>
+<ol>
+<li><code>CTT(obj)</code> = <code>U</code></li>
+<li><code>CTT(arg)</code> = <code>S</code></li>
+<li><code>foo</code> includes <code>foo(T)</code>, <code>foo(U, U)</code></li>
+<li><code>foo(S)</code> can be accepted by <code>foo(T)</code></li>
+<li>The most specific is <code>void foo(T)</code></li>
+</ol>
+<h4 id="run-time-step_1">Run-Time Step</h4>
+<ol>
+<li>Descriptor = <code>void foo(T)</code></li>
+<li><code>RTT(obj)</code> = <code>T</code></li>
+<li>Check method from <code>T</code><ul>
+<li><code>void T::foo(T)</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></li>
+<li><code>void U::foo(T)</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></li>
+</ul>
+</li>
+</ol>
+<hr />
+</div>
+<div class="tabbed-block">
+<h4 id="compile-time-step_2">Compile-Time Step</h4>
+<ol>
+<li><code>CTT(obj)</code> = <code>U</code></li>
+<li><code>CTT(arg)</code> = <code>U</code></li>
+<li><code>foo</code> includes <code>foo(T)</code>, <code>foo(U, U)</code></li>
+<li><code>foo(U)</code> cannot be accepted by any from Step 3.</li>
+</ol>
+<p><strong>Compilation-Error</strong></p>
+<hr />
+</div>
+<div class="tabbed-block">
+<h4 id="compile-time-step_3">Compile-Time Step</h4>
+<ol>
+<li><code>CTT(obj)</code> = <code>S</code></li>
+<li><code>CTT(arg)</code> = <code>S</code></li>
+<li><code>foo</code> includes <code>foo(U)</code>, <code>foo(S)</code>, <code>foo(T)</code>, <code>foo(U, U)</code></li>
+<li><code>foo(S)</code> can be accepted by <code>foo(U)</code>, <code>foo(S)</code>, <code>foo(T)</code></li>
+<li>The most specific is <code>void foo(S)</code></li>
+</ol>
+<h4 id="run-time-step_2">Run-Time Step</h4>
+<ol>
+<li>Descriptor = <code>void foo(S)</code></li>
+<li><code>RTT(obj)</code> = <code>S</code></li>
+<li>Check method from <code>S</code><ul>
+<li><code>void S::foo(S)</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></li>
+<li><code>void T::foo(S)</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<h4 id="compile-time-step_4">Compile-Time Step</h4>
+<table>
+<thead>
+<tr>
+<th><code>foo</code></th>
+<th>Accept <code>foo(S)</code></th>
+<th>Most specific</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>foo(U)</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+</tr>
+<tr>
+<td><code>foo(S)</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+</tr>
+<tr>
+<td><code>foo(T)</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+</tr>
+<tr>
+<td><code>foo(U, U)</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td>- (<em>can be ignored</em>)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="run-time-step_3">Run-Time Step</h4>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Has <code>void foo(S)</code>?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>S</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+</tr>
+<tr>
+<td><code>T</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+</tr>
+<tr>
+<td><code>U</code></td>
+<td>- (<em>can be ignored</em>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+</div>
+</div>
+<p>Hopefully the 3 examples above are informative.  We cannot cover all possibilities but the steps should provide guidance on what to do when new situation arise.  In recitation we will connect this with class diagram so that we can understand the steps visually.</p>
+</div>
+<h2 id="invocation-of-class-methods">Invocation of Class Methods</h2>
+<p>The description above applies to instance methods.  Class methods, on the other hand, do not support dynamic binding.  The method to invoke is resolved statically during compile time.  The same process in Step 1 is taken, but the corresponding method implementation in class <span class="arithmatex">\(C\)</span> will always be executed during run-time, without considering the run-time type of the target.</p>
+<div class="admonition danger">
+<p class="admonition-title">Bad Practice</p>
+<p>To show that invocation of class methods is not via dynamic binding, we have to use example that are basically frowned upon.  Do not follow this bad practice in your coding.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">T</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">S</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Typically, we will invoke the static method <code>f</code> using either <code>T.f()</code> or <code>S.f()</code>.  Unfortunately, to show that invocation of class method is using static binding, we have to use the instance rather than the class.  Which leads us to the unorthodox code snippet below.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">S</span><span class="p">();</span><span class="w"> </span><span class="c1">// compile-time type is T, run-time type is S</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="na">f</span><span class="p">());</span><span class="w"> </span><span class="c1">// what is the expected result?</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Unless the future requires us to add functionality to every single classes.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>While it is useful to think of this as a two-part process, what happens during compilation is really not so different from type checking.  In particular, it is trying to <em>guarantee</em> that if the compilation is successful, the method to be invoked will definitely be found at run-time and will be able to accept the parameters of the specified compile-time type.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Reminder, from our definition of subtype and supertype, a given type <span class="arithmatex">\(S\)</span> is both a subtype and a supertype of itself.  In terms of notation, we have <span class="arithmatex">\(S &lt;: S\)</span>, which is the same as <span class="arithmatex">\(S :&gt; S\)</span>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright by Department of Computer Science, National University of Singapore 2023
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "toc.follow", "toc.integrate", "content.code.annotate", "content.code.copy"], "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+        <script src="javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2254 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://nus-cs2030s.github.io/2324-s1/labs/lab5-question.html">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Lab 5: Call me Maybe - CS2030S Programming Methodology II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="light-green">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-5-call-me-maybe" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="CS2030S Programming Methodology II" class="md-header__button md-logo" aria-label="CS2030S Programming Methodology II" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CS2030S Programming Methodology II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 5: Call me Maybe
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="CS2030S Programming Methodology II" class="md-nav__button md-logo" aria-label="CS2030S Programming Methodology II" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CS2030S Programming Methodology II
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0. Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-compiler.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Program and Compiler
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-type.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Variables and Types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-function.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-encapsulation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Encapsulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-infohiding.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Information Hiding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-tell-dont-ask.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Tell, Don't Ask
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-static-field.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Class Fields
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-static-method.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Class Methods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-composition.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Composition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-heap-stack.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Heap and Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-inheritance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Inheritance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-overriding.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Overriding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-overloading.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Overloading
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-polymorphism.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Polymorphism
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-dynamic-binding.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Method Invocation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-lsp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. LSP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-abstract.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Abstract Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-interface.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-wrapper.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Wrapper Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-casting.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Run-Time Class Mismatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-variance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    21. Variance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-exception.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    22. Exceptions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-generics.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    23. Generics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-erasure.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    24. Type Erasure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-unchecked.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    25. Unchecked Warnings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-wildcard.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    26. Wildcards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-inference.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    27. Type Inference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-immutability.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    28. Immutability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29-nested-classes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    29. Nested Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30-functions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    30. Side Effect-Free Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31-box-maybe.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    31. Box and Maybe
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32-lazy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    32. Lazy Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../33-infinitelist.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    33. Infinite List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../34-stream.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    34. Streams in Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../35-logger.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    35. Loggable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../36-monad.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    36. Monad
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../37-parallel.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    37. Parallel Streams
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../38-thread.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    38. Threads
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../39-async.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    39. Asynchronous Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40-forkjoin.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    40. Fork and Join
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Lab Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Lab Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environments.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programming Environments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unix CLI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unix CLI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unix/background.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Background
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unix/essentials.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Essentials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unix/advanced.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Vim
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Vim
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/philosophy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Background
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/setup.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/quick-lessons.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lessons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/tips.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/plugins.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/cheatsheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cheat Sheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Java Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../style.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding Style
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javadoc.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JavaDoc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lab-5-call-me-maybe">Lab 5: Call me Maybe</h1>
+<div class="admonition abstract">
+<p class="admonition-title">Basic Information</p>
+<ul>
+<li><strong>Deadline:</strong> 17 October 2023, Tuesday, 23:59 SST</li>
+<li><strong>Marks:</strong> 20</li>
+<li><strong>Weightage:</strong> 2%</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Prerequisite</p>
+<ul>
+<li>Completed Lab 4.</li>
+<li>Caught up to <a href="../29-nested-classes.html">Unit 29</a> of Online Notes.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Files</p>
+<p>In the directory, you should see the following files:</p>
+<ul>
+<li><strong>Java Files:</strong><ul>
+<li><code>cs2030s/fp/Producer.java</code>: A template for <code>Producer</code>.</li>
+<li><code>cs2030s/fp/Consumer.java</code>: A template for <code>Consumer</code>.</li>
+<li><code>cs2030s/fp/BooleanCondition.java</code>: A template for <code>BooleanCondition</code>.</li>
+<li><code>CS2030STest.java</code>: The main tester class.</li>
+<li><code>Test1.java</code> - <code>Test6.java</code>: A tester.</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="preliminary">Preliminary</h2>
+<p>This is a follow-up from Lab 4. In Lab 4, we have constructed a generic class <code>Some&lt;T&gt;</code>, which is a container for an item of type <code>T</code>.  Beyond being an exercise for teaching about generics, <code>Some&lt;T&gt;</code> is not a very useful type.  In this lab we are going to modify <code>Some&lt;T&gt;</code> into a more useful class.  We are also going to build our own Java packages using these useful classes.</p>
+<h3 id="java-package">Java Package</h3>
+<p>Java package mechanism allows us to group relevant classes and interfaces under a namespace. You have seen two packages so far: <code>java.util</code>, where we import <code>List</code> and <code>Arrays</code> from.  There is also <code>java.lang</code> where we import the <code>Math</code> class from.  These are provided by Java as standard libraries.  We can also create our package and put the classes and interfaces into the same package. We (<em>and the clients</em>) can then import and use the classes and interfaces that we provide.</p>
+<p>Java package provides a higher-layer of abstraction barrier. We can designate a class to be used outside a package by prefixing the keyword <code>class</code> with the access modifier <code>public</code>.  We can further fine-tune which fields and methods are accessible from other classes in the same package using the <code>protected</code> access modifier.</p>
+<p>You can read more about <a href="https://docs.oracle.com/javase/tutorial/java/package/index.html">java packages</a> and the <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html"><code>protected</code> modifier</a> yourself through Oracle's Java tutorial.</p>
+<p>As a summary, the access levels are as follows.</p>
+<table>
+<thead>
+<tr>
+<th>Modifier</th>
+<th>Access from same class</th>
+<th>Access from same package<br>(<em>or the same directory</em>)</th>
+<th>Access from subclass<br>(<em>other directory</em>)</th>
+<th>Access from other class<br>(<em>other directory</em>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>public</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+</tr>
+<tr>
+<td><code>protected</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+</tr>
+<tr>
+<td><code>private</code></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+</tr>
+</tbody>
+</table>
+<p>The table above is also the reason why we do not allow <code>protected</code> keyword in earlier labs.  Unless we are creating a proper package with proper directory structure, <code>protected</code> offer no additional benefit and is equivalent to <code>public</code>.  The class have to be created inside another directory to make full use of <code>protected</code>, which is what we are going to do in this lab.</p>
+<p>We will create a package named <code>cs2030s.fp</code> to be used for this and the next few labs.</p>
+<p>First, we need to add the line:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">cs2030s.fp</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>on top of every <code>.java</code> file that we would like to include in the package.</p>
+<p>The package name is typically written in a hierarchical manner using the "." notation. The name also indicates the location of the <code>.java</code> files and the <code>.class</code> files.  For this reason, you can no longer store the <code>.java</code> files under labX-username directly. Instead, you should put them in a subdirectory called <code>cs2030s/fp</code> under <code>labX-username</code>.</p>
+<p>To start, our <code>cs2030s.fp</code> package will contain the interface <code>Transformer</code> that you have written in Lab 4.</p>
+<p>If you have set up everything correctly, you should be able to run the following in <code>jshell</code> (<em>remember to always compile your code first!</em>) from your <code>labX-username</code> directory:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>jshell&gt; import cs2030s.fp.Transformer;
+</code></pre></div></td></tr></table></div>
+<p>without error.</p>
+<h2 id="task-1-more-interfaces">Task 1: More Interfaces</h2>
+<p>Now, we are going to add three more interfaces into our package:</p>
+<ul>
+<li><code>Producer&lt;T&gt;</code> is an interface with a single <code>produce</code> method that takes in no parameter and returns a value of type <code>T</code>.</li>
+<li><code>Consumer&lt;T&gt;</code> is an interface with a single <code>consume</code> method that takes in a parameter of type <code>T</code> and returns <em>nothing</em>.</li>
+<li><code>BooleanCondition&lt;T&gt;</code> is an interface with a single <code>test</code> method that takes in a parameter of type <code>T</code> and returns a primitive <code>boolean</code> value.</li>
+</ul>
+<h3 id="sample-usage">Sample Usage</h3>
+<p>If you have set up everything correctly, you should be able to run the following in <code>jshell</code> without errors (<em>remember to always compile your code first!</em>).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code>jshell&gt; import cs2030s.fp.Producer;
+jshell&gt; import cs2030s.fp.Consumer;
+jshell&gt; import cs2030s.fp.BooleanCondition;
+jshell&gt; Producer&lt;String&gt; p;
+jshell&gt; p = new Producer&lt;&gt;() {
+   ...&gt;   public String produce() { return &quot;&quot;; }
+   ...&gt; }
+jshell&gt; Consumer&lt;Boolean&gt; c;
+jshell&gt; c = new Consumer&lt;&gt;() {
+   ...&gt;   public void consume(Boolean b) { }
+   ...&gt; }
+jshell&gt; BooleanCondition&lt;Integer&gt; b;
+jshell&gt; b = new BooleanCondition&lt;&gt;() {
+   ...&gt;   public boolean test(Integer x) { return x &gt; 0; }
+   ...&gt; }
+</code></pre></div></td></tr></table></div>
+<h2 id="task-2-call-me-maybe">Task 2: Call me Maybe</h2>
+<p>Now, we are going to implement a type called <code>Maybe&lt;T&gt;</code> in the <code>cs2030s.fp</code> package. Our <code>Maybe&lt;T&gt;</code> is an <em>option</em> type, a common abstraction in programming languages (<code>java.util.Optional</code> <em>in Java,</em> <code>option</code> <em>in Scala,</em> <code>Maybe</code> <em>in Haskell,</em> <code>Nullable&lt;T&gt;</code> <em>in C#, etc</em>) that is a wrapper around a value that might be missing. In other words, it represents either <em>some</em> value, or <em>none</em>.</p>
+<h3 id="step-0-packaging-some">Step 0: Packaging Some</h3>
+<ol>
+<li>Copy your implementation of <code>Some.java</code> into <code>labX-username/cs2030s/fp</code> directory.</li>
+<li>Add <code>package cs2030s.fp;</code> as the first line on <code>Some.java</code>.</li>
+</ol>
+<p>We will create our <code>Maybe&lt;T&gt;</code> class as part of <code>cs2030s.fp</code> package.</p>
+<h3 id="step-1-inner-class">Step 1: Inner Class</h3>
+<ol>
+<li>Rename your <code>Some.java</code> into <code>Maybe.java</code>.</li>
+<li>Rename the class <code>Some&lt;T&gt;</code> into <code>Maybe&lt;T&gt;</code>.  This entails some other corrections too:<ul>
+<li>Rename all occurrences of <code>Some</code> into <code>Maybe</code> including the private constructor and the return type.</li>
+<li>Do <strong>NOT</strong> change the name of the factory method <code>some</code>.</li>
+</ul>
+</li>
+</ol>
+<p>If you have done this correctly, your directory structure should look something like the following:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>labX-username/
+├─ cs2030s/
+│  ├─ fp/
+│  │  ├─ Maybe.java
+│  │  ├─ Transformer.java
+├─ CS2030STest.java
+├─ Test1.java
+├─ Test2.java
+├─ Test3.java
+├─ Test4.java
+├─ Test5.java
+├─ Test6.java
+</code></pre></div></td></tr></table></div>
+<p>Additionally, you should be able to compile both <code>Maybe.java</code> and <code>Transformer.java</code> from within the <code>cs2030s/fp</code> directory using the following command without any warning.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>javac -Xlint:rawtypes -Xlint:unchecked *.java
+</code></pre></div></td></tr></table></div>
+<p>You can test this changes to <code>Maybe&lt;T&gt;</code> more comprehensively by running the following <strong>from</strong> your <code>labX-username</code> directory.  This test case is simply the same as <code>Test2.java</code> from Lab 4 renamed to fit the current Lab 5.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>javac -Xlint:rawtypes -Xlint:unchecked Test1.java
+java Test1
+</code></pre></div></td></tr></table></div>
+<p>There shouldn't be any compilation warning or error when you compile <code>Test1.java</code> and all tests should prints <code>ok</code>.</p>
+<h3 id="step-2-adding-none-class">Step 2: Adding None Class</h3>
+<p>Now we want to loosen the restriction of having no <code>null</code> value for our input.  We want to be able to handle <code>null</code> input to our factory method <code>Maybe::of</code>.  To do this, we want to first create a private <em>static nested</em> class called <code>None&lt;T&gt;</code>.  The types <code>None&lt;T&gt;</code> is an internal implementation details of <code>Maybe&lt;T&gt;</code> and must not be used directly by the client.  Hence, it must be declared private.  Here is the requirement for <code>None&lt;T&gt;</code>.</p>
+<ul>
+<li><code>None&lt;T&gt;</code> is a <em>generic</em> private inner class that inherits from <code>Maybe&lt;T&gt;</code>.<ul>
+<li>Why is it generic if it represents <code>null</code> value?  Because we will need to be able to re-convert this back to the <code>Maybe&lt;T&gt;</code> with the same <code>T</code> later on.</li>
+</ul>
+</li>
+<li><code>None&lt;T&gt;</code> has no instance field.</li>
+<li><code>None&lt;T&gt;</code> has private constructor that takes in no argument.</li>
+<li><code>None&lt;T&gt;</code> overrides the <code>equals</code> method from <code>Maybe&lt;T&gt;</code>.<ul>
+<li>Any instance of <code>None&lt;T&gt;</code> is <em>equal</em> to any other instance of <code>None&lt;T&gt;</code>.</li>
+<li>We also need to <em>modify</em> <code>Maybe&lt;T&gt;</code> to include a case where we are comparing <code>Maybe&lt;T&gt;</code> with <code>None&lt;T&gt;</code>.  In such cases, it should return <code>false</code>.</li>
+</ul>
+</li>
+<li><code>None&lt;T&gt;</code> overrides the <code>toString</code> method from <code>Maybe&lt;T&gt;</code>.<ul>
+<li>It simply prints <code>[]</code>.</li>
+</ul>
+</li>
+<li><code>None&lt;T&gt;</code> overrides the <code>map</code> method from <code>Maybe&lt;T&gt;</code>.<ul>
+<li>This simply returns <em>itself</em>.</li>
+<li>You may add <code>@SuppressWarnings</code> here with explanation on why it is safe.</li>
+</ul>
+</li>
+<li><code>None&lt;T&gt;</code> (<em>and by extension</em> <code>Maybe&lt;T&gt;</code>) must be immutable up to <code>T</code>.</li>
+</ul>
+<h3 id="step-3-handling-nothing-in-maybe">Step 3: Handling Nothing in Maybe</h3>
+<p>After you have created the <code>None&lt;T&gt;</code> class, we want to start handling the possibility that we create <code>Maybe&lt;T&gt;</code> with <code>null</code> value.</p>
+<ul>
+<li>Add the method <code>none()</code> that returns an instance of <code>None&lt;T&gt;</code>.<ul>
+<li>There should only be <strong>ONE</strong> instance of <code>None&lt;T&gt;</code> such that multiple calls to <code>none()</code> should return the same instance.</li>
+<li>You may add <code>@SuppressWarnings</code> here with explanation on why it is safe.</li>
+</ul>
+</li>
+<li>Add the method <code>of</code> that returns:<ul>
+<li>an instance of <code>None&lt;T&gt;</code> if the input is <code>null</code>.</li>
+<li>an instance of <code>Maybe&lt;T&gt;</code> (<em>that is not</em> <code>None&lt;T&gt;</code>) if the input is not <code>null</code>.</li>
+</ul>
+</li>
+<li>Modify the <code>map</code> method in <code>Maybe&lt;T&gt;</code> such that it returns:<ul>
+<li>an instance of <code>None&lt;T&gt;</code> if the result of applying the transformer is a <code>null</code> value.</li>
+<li>an instance of <code>Maybe&lt;T&gt;</code> (<em>that is not</em> <code>None&lt;T&gt;</code>) if the result of applying the transformer is not a <code>null</code> value.</li>
+</ul>
+</li>
+</ul>
+<p>Notice how the <code>map</code> may transform a <code>Maybe&lt;T&gt;</code> into a <code>None&lt;T&gt;</code> but never the other way around.  Here, by <code>Maybe&lt;T&gt;</code>, we really meant the <code>Maybe&lt;T&gt;</code> that is not <code>None&lt;T&gt;</code>.  This can be captured as the following "state diagram".</p>
+<p><img alt="map" src="lab5-map.png" /></p>
+<p>In fact, the arrow in the diagram above can be either <code>map</code>, <code>filter</code> (Task 3), or <code>flatMap</code> (Task 4).</p>
+<p>Generally, the step for <code>map</code> method can be summarized below.</p>
+<ol>
+<li>Open the "box".</li>
+<li>Apply the function.<ul>
+<li>Obtain the result.</li>
+</ul>
+</li>
+<li>Put into new "box".</li>
+<li>Return the result.</li>
+</ol>
+<p>An illustration is shown below.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Overview</label><label for="__tabbed_1_2">Open the Box</label><label for="__tabbed_1_3">Apply the Function</label><label for="__tabbed_1_4">Obtain the Result</label><label for="__tabbed_1_5">Put into new Box</label><label for="__tabbed_1_6">Return the result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="map" src="R06_map.jpg" /></p>
+<hr />
+</div>
+<div class="tabbed-block">
+<p><img alt="map" src="R06_map_01.jpg" /></p>
+<p>By invoking <code>map</code>, you are already inside the "box".  So the "box" is already opened for you.</p>
+<hr />
+</div>
+<div class="tabbed-block">
+<p><img alt="map" src="R06_map_02.jpg" /></p>
+<hr />
+</div>
+<div class="tabbed-block">
+<p><img alt="map" src="R06_map_03.jpg" /></p>
+<hr />
+</div>
+<div class="tabbed-block">
+<p><img alt="map" src="R06_map_04.jpg" /></p>
+<hr />
+</div>
+<div class="tabbed-block">
+<p><img alt="map" src="R06_map_05.jpg" /></p>
+<hr />
+</div>
+</div>
+</div>
+<h4 id="sample-usage-1">Sample Usage #1</h4>
+<p>The sample usage for <code>none()</code> and <code>of()</code> is shown below.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code>jshell&gt; Maybe.none().equals(Maybe.none())
+$.. ==&gt; true
+jshell&gt; Maybe.none().equals(Maybe.some(&quot;day&quot;))
+$.. ==&gt; false
+jshell&gt; Maybe.none().equals(Maybe.some(null))
+$.. ==&gt; false
+jshell&gt; Maybe.none().equals(null)
+$.. ==&gt; false
+
+jshell&gt; Maybe.some(&quot;day&quot;).equals(Maybe.some(&quot;day&quot;))
+$.. ==&gt; true
+jshell&gt; Maybe.some(&quot;day&quot;).equals(Maybe.none())
+$.. ==&gt; false
+jshell&gt; Maybe.some(&quot;day&quot;).equals(Maybe.some(null))
+$.. ==&gt; false
+
+jshell&gt; Maybe.some(null).equals(Maybe.some(null))  // be careful with this (updated from false to true)
+$.. ==&gt; true
+jshell&gt; Maybe.some(null).equals(Maybe.some(&quot;day&quot;))
+$.. ==&gt; false
+jshell&gt; Maybe.some(null).equals(null)
+$.. ==&gt; false
+
+jshell&gt; Maybe.of(null).equals(Maybe.none())
+$.. ==&gt; true
+jshell&gt; Maybe.of(null).equals(Maybe.some(null))
+$.. ==&gt; false
+jshell&gt; Maybe.of(null) == Maybe.none()
+$.. ==&gt; true
+
+jshell&gt; Maybe.of(4).equals(Maybe.none())
+$.. ==&gt; false
+jshell&gt; Maybe.of(4).equals(Maybe.some(4))
+$.. ==&gt; true
+</code></pre></div></td></tr></table></div>
+<p>You can test this addition to <code>Maybe&lt;T&gt;</code> more comprehensively by running the following <strong>from</strong> your <code>labX-username</code> directory.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>javac -Xlint:rawtypes -Xlint:unchecked Test2.java
+java Test2
+</code></pre></div></td></tr></table></div>
+<p>There shouldn't be any compilation warning or error when you compile <code>Test2.java</code> and all tests should prints <code>ok</code>.</p>
+<h4 id="sample-usage-2">Sample Usage #2</h4>
+<p>The sample usage for <code>map()</code> is shown below.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code>jshell&gt; Transformer&lt;Integer,Integer&gt; incr = new Transformer&lt;&gt;() {
+   ...&gt;   public Integer transform(Integer x) {
+   ...&gt;     return x + 1;
+   ...&gt;   }
+   ...&gt; }
+jshell&gt; Maybe.&lt;Integer&gt;none().map(incr)
+$.. ==&gt; []
+jshell&gt; try {
+   ...&gt;   Maybe.&lt;Integer&gt;some(null).map(incr); // &lt;- error expected
+   ...&gt; } catch (NullPointerException e) {
+   ...&gt;   System.out.println(e);
+   ...&gt; }
+java.lang.NullPointerException
+jshell&gt; Maybe.&lt;Integer&gt;some(1).map(incr)
+$.. ==&gt; [2]
+
+jshell&gt; Map&lt;String,Integer&gt; map = Map.of(&quot;one&quot;, 1, &quot;two&quot;, 2);
+jshell&gt; Transformer&lt;String,Maybe&lt;Integer&gt;&gt;  = new Transformer&lt;&gt;() {
+   ...&gt;   public String transform(String x) {
+   ...&gt;     return Maybe.some(map.get(x));
+   ...&gt;   }
+   ...&gt; }
+jshell&gt; Map&lt;String,Integer&gt; map = Map.of(&quot;one&quot;, 1, &quot;two&quot;, 2);
+jshell&gt; Transformer&lt;String,Integer&gt; wordToInt = new Transformer&lt;&gt;() {
+   ...&gt;   public Integer transform(String x) {
+   ...&gt;     return map.get(x);
+   ...&gt;   }
+   ...&gt; }
+jshell&gt; Maybe.&lt;String&gt;none().map(wordToInt)
+$.. ==&gt; []
+jshell&gt; Maybe.&lt;String&gt;some(&quot;&quot;).map(wordToInt)
+$.. ==&gt; []
+jshell&gt; Maybe.&lt;String&gt;some(&quot;one&quot;).map(wordToInt)
+$.. ==&gt; [1]
+
+jshell&gt; Transformer&lt;String,Maybe&lt;Integer&gt;&gt; wordToMaybeInt = new Transformer&lt;&gt;() {
+   ...&gt;   public Maybe&lt;Integer&gt; transform(String x) {
+   ...&gt;     return Maybe.of(map.get(x));
+   ...&gt;   }
+   ...&gt; }
+jshell&gt; Maybe.&lt;String&gt;none().map(wordToMaybeInt)
+$.. ==&gt; []
+jshell&gt; Maybe.&lt;String&gt;some(&quot;&quot;).map(wordToMaybeInt)
+$.. ==&gt; [[]]
+jshell&gt; Maybe.&lt;String&gt;some(&quot;one&quot;).map(wordToMaybeInt)
+$.. ==&gt; [[1]]
+jshell&gt; Maybe&lt;Maybe&lt;Integer&gt;&gt; m = Maybe.&lt;String&gt;some(&quot;one&quot;).map(wordToMaybeInt)
+
+jshell&gt; Transformer&lt;Object,Integer&gt; toHashCode = new Transformer&lt;&gt;() {
+   ...&gt;   public Integer transform(Object x) {
+   ...&gt;     return x.hashCode();
+   ...&gt;   }
+   ...&gt; }
+jshell&gt; Maybe&lt;Integer&gt; m = Maybe.&lt;String&gt;none().map(toHashCode)
+$.. ==&gt; []
+jshell&gt; Maybe&lt;Integer&gt; m = Maybe.&lt;String&gt;some(&quot;cs2030s&quot;).map(toHashCode)
+$.. ==&gt; [1008560200]
+</code></pre></div></td></tr></table></div>
+<p>You can test this addition to <code>Maybe&lt;T&gt;</code> more comprehensively by running the following <strong>from</strong> your <code>labX-username</code> directory.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>javac -Xlint:rawtypes -Xlint:unchecked Test3.java
+java Test3
+</code></pre></div></td></tr></table></div>
+<p>There shouldn't be any compilation warning or error when you compile <code>Test3.java</code> and all tests should prints <code>ok</code>.</p>
+<h2 id="task-3-filtering">Task 3: Filtering</h2>
+<p>We now add the method <code>filter</code> to <code>Maybe&lt;T&gt;</code>.</p>
+<ul>
+<li>Add the method <code>filter</code> in <code>Maybe&lt;T&gt;</code> that takes in <code>BooleanCondition&lt;..&gt;</code> (<em>type parameter omitted</em>) as a parameter.<ul>
+<li>If the content of <code>Maybe&lt;T&gt;</code> is <code>null</code> or failed the test (<em>i.e., the call to</em> <code>test</code> <em>returns</em> <code>false</code>), return <code>None&lt;T&gt;</code>.</li>
+<li>Otherwise, leaves <code>Maybe</code> untouched and return <code>Maybe</code> as it is.</li>
+</ul>
+</li>
+<li>Override the method <code>filter</code> in<code>None&lt;T&gt;</code>.<ul>
+<li>Always returns a <code>None</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="sample-usage_1">Sample Usage</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code>jshell&gt; import cs2030s.fp.BooleanCondition
+jshell&gt; import cs2030s.fp.Maybe
+
+jshell&gt; BooleanCondition&lt;Number&gt; isEven = new BooleanCondition&lt;&gt;() {
+   ...&gt;   public boolean test(Number x) {
+   ...&gt;     return x.shortValue() % 2 == 0;
+   ...&gt;   }
+   ...&gt; }
+jshell&gt; Maybe.&lt;Integer&gt;none().filter(isEven)
+$.. ==&gt; []
+jshell&gt; Maybe.&lt;Integer&gt;some(null).filter(isEven)
+$.. ==&gt; []
+jshell&gt; Maybe.&lt;Integer&gt;some(1).filter(isEven)
+$.. ==&gt; []
+jshell&gt; Maybe.&lt;Integer&gt;some(2).filter(isEven)
+$.. ==&gt; [2]
+</code></pre></div></td></tr></table></div>
+<p>You can test this addition to <code>Maybe&lt;T&gt;</code> more comprehensively by running the following <strong>from</strong> your <code>labX-username</code> directory.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>javac -Xlint:rawtypes -Xlint:unchecked Test4.java
+java Test4
+</code></pre></div></td></tr></table></div>
+<p>There shouldn't be any compilation warning or error when you compile <code>Test4.java</code> and all tests should prints <code>ok</code>.</p>
+<h2 id="task-4-flatmap">Task 4: flatMap</h2>
+<p>Consider a <code>Transformer</code> that might return a <code>Maybe&lt;T&gt;</code> itself (as <code>wordToMaybeInt</code> above).  Using <code>map</code> on such a <code>Transformer</code> would lead to a value wrapped around a <code>Maybe</code> twice.  We want to add a method that is not doing this.</p>
+<ul>
+<li>Add a method <code>flatMap</code> in <code>Maybe&lt;T&gt;</code> that takes in a <code>Transfomer&lt;..&gt;</code> as the parameter.<ul>
+<li>The <code>Transformer</code> object transforms the value of type <code>T</code> in <code>Maybe&lt;T&gt;</code> into a value of type <code>Maybe&lt;U&gt;</code>, for some type <code>U</code>.</li>
+<li>The method <code>flatMap</code>, however, returns a value of type <code>Maybe&lt;U&gt;</code> (instead of <code>Maybe&lt;Maybe&lt;U&gt;&gt;</code> as in the case of <code>map</code>).</li>
+<li>You may add <code>@SuppressWarnings</code> here with explanation on why it is safe.</li>
+</ul>
+</li>
+<li>Override the method <code>flatMap</code> in<code>None&lt;T&gt;</code>.<ul>
+<li>Always returns a <code>None</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="sample-usage_2">Sample Usage</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code>jshell&gt; Map&lt;String,Integer&gt; map = Map.of(&quot;one&quot;, 1, &quot;two&quot;, 2);
+jshell&gt; Transformer&lt;String,Maybe&lt;Integer&gt;&gt; wordToMaybeInt = new Transformer&lt;&gt;() {
+   ...&gt;   public Maybe&lt;Integer&gt; transform(String x) {
+   ...&gt;     return Maybe.of(map.get(x));
+   ...&gt;   }
+   ...&gt; }
+jshell&gt; Maybe.&lt;String&gt;none().flatMap(wordToMaybeInt)
+$.. ==&gt; []
+jshell&gt; Maybe.&lt;String&gt;some(&quot;&quot;).flatMap(wordToMaybeInt)
+$.. ==&gt; []
+jshell&gt; Maybe.&lt;String&gt;some(&quot;one&quot;).flatMap(wordToMaybeInt)
+$.. ==&gt; [1]
+jshell&gt; Maybe&lt;Number&gt; m = Maybe.&lt;String&gt;some(&quot;one&quot;).flatMap(wordToMaybeInt)
+</code></pre></div></td></tr></table></div>
+<p>You can test this addition to <code>Maybe&lt;T&gt;</code> more comprehensively by running the following <strong>from</strong> your <code>labX-username</code> directory.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>javac<span class="w"> </span>-Xlint:rawtypes<span class="w"> </span>-Xlint:unchecked<span class="w"> </span>Test5.java
+java<span class="w"> </span>Test5
+</code></pre></div></td></tr></table></div>
+<p>There shouldn't be any compilation warning or error when you compile <code>Test5.java</code> and all tests should prints <code>ok</code>.</p>
+<h2 id="task-5-back-to-t">Task 5: Back to T</h2>
+<p>Since Maybe is an abstraction for a possibly missing value, it would be useful to provide methods that decide what to do if the value is missing.</p>
+<ul>
+<li>Add a method <code>orElse</code> in <code>Maybe&lt;T&gt;</code> that takes in a <code>Producer&lt;..&gt;</code> as the parameter.<ul>
+<li>Always return the content.</li>
+</ul>
+</li>
+<li>Override the method <code>orElse</code> in<code>None&lt;T&gt;</code>.<ul>
+<li>Returns the value of type <code>T</code> produced by the <code>Producer</code>.</li>
+</ul>
+</li>
+<li>Add a method <code>ifPresent</code> in <code>Maybe&lt;T&gt;</code> that takes in a <code>Consumer&lt;..&gt;</code> as the parameter.<ul>
+<li>The <code>Consumer</code> consumes the content.</li>
+</ul>
+</li>
+<li>Override the method <code>ifPresent</code> in<code>None&lt;T&gt;</code>.<ul>
+<li>Do nothing.</li>
+</ul>
+</li>
+</ul>
+<h3 id="sample-usage_3">Sample Usage</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code>jshell&gt; Producer&lt;Double&gt; zero = new Producer&lt;&gt;() {
+   ...&gt;   public Double produce() {
+   ...&gt;     return 0.0;
+   ...&gt;   }
+   ...&gt; }
+jshell&gt; Maybe.&lt;Number&gt;none().orElse(zero);
+$.. ==&gt; 0.0
+jshell&gt; Maybe.&lt;Number&gt;some(1).orElse(zero);
+$.. ==&gt; 1
+
+jshell&gt; List&lt;Object&gt; list = new ArrayList&lt;&gt;();
+jshell&gt; Consumer&lt;Object&gt; addToList = new Consumer&lt;&gt;() {
+   ...&gt;   public void consume(Object o) {
+   ...&gt;     list.add(o);
+   ...&gt;   }
+   ...&gt; }
+jshell&gt; Maybe.&lt;Number&gt;none().ifPresent(addToList);
+jshell&gt; list
+list ==&gt; []
+jshell&gt; Maybe.&lt;Number&gt;some(1).ifPresent(addToList);
+jshell&gt; list
+list ==&gt; [1]
+</code></pre></div></td></tr></table></div>
+<p>You can test this addition to <code>Maybe&lt;T&gt;</code> more comprehensively by running the following <strong>from</strong> your <code>labX-username</code> directory.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>javac<span class="w"> </span>-Xlint:rawtypes<span class="w"> </span>-Xlint:unchecked<span class="w"> </span>Test6.java
+java<span class="w"> </span>Test6
+</code></pre></div></td></tr></table></div>
+<p>There shouldn't be any compilation warning or error when you compile <code>Test6.java</code> and all tests should prints <code>ok</code>.</p>
+<h3 id="flexible-type">Flexible Type</h3>
+<p>Make sure you use PECS principle to make the <code>map</code> method as flexible as possible.  We have no explicit test case for this.  You are encouraged to make your own test case.</p>
+<h2 id="grading">Grading</h2>
+<p>This lab is worth 20 marks and contribute 2% to your Lab Assignment component.  The marking scheme is as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Sub-Component</th>
+<th>Marks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Correctness</td>
+<td></td>
+<td>16 marks</td>
+</tr>
+<tr>
+<td>Style</td>
+<td></td>
+<td>4 marks</td>
+</tr>
+</tbody>
+</table>
+<p>Correctness mark will be about general correctness with more manual checking of types satisfying PECS, doing the proper check (<em>e.g.,</em> <code>null</code> <em>check</em>), <em>etc</em>.  This means that each <code>TestX.java</code> may carry different weights.  While we try to give you all the possible tests, there may be some tests we missed.  You should not hardcode any test cases.</p>
+<p>Additionally, if your code cannot compile <strong>for any reason</strong>, you will get <strong>0 mark for the lab</strong>.  We will check for compilation with the following command run from <code>cs2030s/fp</code> directory.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>javac<span class="w"> </span>-Xlint:unchecked<span class="w"> </span>-Xlint:rawtypes<span class="w"> </span>*.java
+</code></pre></div></td></tr></table></div>
+<p>We may make additional deductions for other issues or errors in your code such as run-time error, failure to follow instructions, failure to correct errors from Lab 4, not commenting <code>@SuppressWarning</code>, misuse of <code>@SuppressWarning</code> (<em>unnecessary, not in smallest scope, etc</em>), etc.</p>
+<h2 id="submission">Submission</h2>
+<p>To submit the lab, run the following command from the directory containing your lab 5 code.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>~cs2030s/submit-lab5
+</code></pre></div></td></tr></table></div>
+<p>Please check your repo after running the submission script to ensure that your files have been added correctly.  The URL to your repo is given after you run the submission script.</p>
+<div class="admonition danger">
+<p class="admonition-title">Do NOT Use Other Git Command</p>
+<p>While you may be familiar with git commands, please do not use them.  Please use only the submission script <code>submit-labX</code> to ensure that your submissions are recorded properly.</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright by Department of Computer Science, National University of Singapore 2023
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "toc.follow", "toc.integrate", "content.code.annotate", "content.code.copy"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

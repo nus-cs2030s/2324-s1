@@ -1,0 +1,1950 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://nus-cs2030s.github.io/2324-s1/labs/lab4-question.html">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Lab 4: Some Body Once Told Me - CS2030S Programming Methodology II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="light-green">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-4-some-body-once-told-me" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="CS2030S Programming Methodology II" class="md-header__button md-logo" aria-label="CS2030S Programming Methodology II" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CS2030S Programming Methodology II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 4: Some Body Once Told Me
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="CS2030S Programming Methodology II" class="md-nav__button md-logo" aria-label="CS2030S Programming Methodology II" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CS2030S Programming Methodology II
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0. Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-compiler.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Program and Compiler
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-type.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Variables and Types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-function.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-encapsulation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Encapsulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-infohiding.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Information Hiding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-tell-dont-ask.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Tell, Don't Ask
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-static-field.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Class Fields
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-static-method.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Class Methods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-composition.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Composition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-heap-stack.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Heap and Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-inheritance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Inheritance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-overriding.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Overriding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-overloading.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Overloading
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-polymorphism.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Polymorphism
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-dynamic-binding.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Method Invocation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-lsp.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. LSP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-abstract.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Abstract Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-interface.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-wrapper.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Wrapper Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-casting.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Run-Time Class Mismatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-variance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    21. Variance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-exception.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    22. Exceptions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-generics.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    23. Generics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-erasure.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    24. Type Erasure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-unchecked.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    25. Unchecked Warnings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-wildcard.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    26. Wildcards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-inference.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    27. Type Inference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-immutability.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    28. Immutability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29-nested-classes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    29. Nested Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30-functions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    30. Side Effect-Free Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31-box-maybe.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    31. Box and Maybe
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32-lazy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    32. Lazy Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../33-infinitelist.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    33. Infinite List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../34-stream.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    34. Streams in Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../35-logger.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    35. Loggable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../36-monad.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    36. Monad
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../37-parallel.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    37. Parallel Streams
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../38-thread.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    38. Threads
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../39-async.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    39. Asynchronous Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40-forkjoin.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    40. Fork and Join
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Lab Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Lab Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environments.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programming Environments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unix CLI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unix CLI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unix/background.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Background
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unix/essentials.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Essentials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unix/advanced.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Vim
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Vim
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/philosophy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Background
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/setup.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/quick-lessons.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lessons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/tips.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/plugins.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/cheatsheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cheat Sheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Java Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../style.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding Style
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javadoc.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JavaDoc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lab-4-some-body-once-told-me">Lab 4: Some Body Once Told Me</h1>
+<div class="admonition abstract">
+<p class="admonition-title">Basic Information</p>
+<ul>
+<li><strong>Deadline:</strong> 11 October 2023, Wednesday, 23:59 SST (+1 day extension due to PE1)</li>
+<li><strong>Marks:</strong> 20</li>
+<li><strong>Weightage:</strong> 2%</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Prerequisite</p>
+<ul>
+<li>Caught up to <a href="../27-inference.html">Unit 27</a> of Online Notes.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Files</p>
+<p>In the directory, you should see the following files:</p>
+<ol>
+<li><strong>Java Files:</strong><ul>
+<li><code>Some.java</code>: A template for <code>Some</code> class.</li>
+<li><code>JackInTheBox.java</code>: A template for <code>JackInTheBox</code> class.</li>
+<li><code>Transformer.java</code>: A template for <code>Transformer</code> interface.</li>
+<li><code>A.java</code>, <code>B.java</code>, <code>C.java</code>: Classes for flexibility check.</li>
+<li><code>CS2030STest.java</code>, <code>Test1.java</code> to <code>Test4.java</code>: Tester class</li>
+</ul>
+</li>
+</ol>
+</div>
+<h2 id="preliminary">Preliminary</h2>
+<p>In this lab, we are going to build our own generic wrapper class, a <code>Some&lt;T&gt;</code>.  This is a wrapper class that can be used to store an item of any reference type.  For this lab, our <code>Some&lt;T&gt;</code> is not going to be a very useful abstraction.  Not to worry. we will slowly add more functionalities to it later in this module.</p>
+<p>In the following, we will slowly build up the <code>Some&lt;T&gt;</code> class along with some additional interfaces.  We suggest that you develop your class step-by-step in the order below.</p>
+<h2 id="task-1-a-simple-container">Task 1: A Simple Container</h2>
+<p>Build a generic class <code>Some&lt;T&gt;</code> that</p>
+<ul>
+<li>contains a <code>private</code> <code>final</code> field of type <code>T</code> to store the content.</li>
+<li>overrides the <code>boolean equals(Object)</code> method from <code>Object</code> to compare if two containers are the same.  Two containers are the same if the contents are equal to each other, as decided by their respective <code>equals</code> method.</li>
+<li>overrides the <code>String toString()</code> method so it returns the string representation of its content, between <code>[</code> and <code>]</code>.</li>
+<li>provides a class method called <code>some</code> that returns a container with a given object.  You may assume that no <code>null</code> value will ever be given.  This restriction will be lifted in lab 5.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Factory Method</p>
+<p>The method <code>some</code> is called a factory method. A factory method is a method provided by a class for the creation of an instance of the class.  Using a public constructor to create an instance necessitates calling <code>new</code> and allocating a new object on the heap every time.  A factory method, on the other hand, allows the flexibility of reusing the same instance.  The <code>some</code> method does not currently reuse instances but this will be rectified in lab 5.</p>
+</div>
+<p>With the availability of the of factory method, <code>Some&lt;T&gt;</code> should keep the constructor <code>private</code>.</p>
+<h3 id="sample-usage">Sample Usage</h3>
+<p>The sequence below shows how we can use a <code>Some</code> using the methods you developed above.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code>jshell&gt; Some.&lt;Integer&gt;some(4)
+$.. ==&gt; [4]
+jshell&gt; Some.some(5) // type inference!
+$.. ==&gt; [5]
+
+jshell&gt; Some.some(4).equals(Some.some(4))
+$.. ==&gt; true
+jshell&gt; Some.some(4).equals(4)
+$.. ==&gt; false
+jshell&gt; Some.some(Some.some(0)).equals(Some.some(Some.some(0)))
+$.. ==&gt; true
+jshell&gt; Some.some(Some.some(0)).equals(Some.some(0))
+$.. ==&gt; false
+jshell&gt; Some.some(0).equals(Some.some(Some.some(0)))
+$.. ==&gt; false
+
+jshell&gt; Some.some(&quot;body once told me&quot;)
+$.. ==&gt; [body once told me]
+jshell&gt; Some.some(&quot;4&quot;).equals(Some.some(4))
+$.. ==&gt; false
+</code></pre></div></td></tr></table></div>
+<p>You can test your <code>Some&lt;T&gt;</code> more comprehensively by running:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>javac -Xlint:rawtypes Test1.java
+java Test1
+</code></pre></div></td></tr></table></div>
+<p>There shouldn't be any compilation warning or error when you compile <code>Test1.java</code> and all tests should prints <code>ok</code>.</p>
+<h2 id="task-2-transformation">Task 2: Transformation</h2>
+<p>Now, we are going to write an interface (<em>along with its implementations</em>) and a method in <code>Some</code> that allows a container to be transformed into another container, possibly containing a different type.</p>
+<h3 id="step-1-transformer-interface">Step 1: Transformer Interface</h3>
+<p>First, create an interface called <code>Transformer&lt;T, U&gt;</code> with an abstract method called <code>transform</code> that takes in an argument of generic type <code>T</code> and returns a value of generic type <code>U</code>.</p>
+<h3 id="step-2-mapping-method">Step 2: Mapping Method</h3>
+<p>Second, write a method called <code>map</code> in the class <code>Some</code> that takes in a <code>Transformer</code>, and use the given <code>Transformer</code> to transform the container (<em>and the value inside</em>) into another container of type <code>Some&lt;U&gt;</code>.  You should leave the original container unchanged.</p>
+<p>Make sure that you make the method signature as <em>flexible</em> as possible.  Follow the PECS principle after you determine which type (<em>i.e.,</em> <code>T</code> <em>or</em> <code>U</code>) acts as producer or consumer (<em>or both?</em>).</p>
+<h3 id="sample-usage_1">Sample Usage</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code>jshell&gt; class AddOne implements Transformer&lt;Integer, Integer&gt; {
+   ...&gt;   @Override
+   ...&gt;   public Integer transform(Integer arg) {
+   ...&gt;     return arg + 1;
+   ...&gt;   }
+   ...&gt; }
+jshell&gt; class StrLen implements Transformer&lt;String, Integer&gt; {
+   ...&gt;   @Override
+   ...&gt;   public Integer transform(String arg) {
+   ...&gt;     return arg.length();
+   ...&gt;   }
+   ...&gt; }
+jshell&gt; AddOne fn1 = new AddOne()
+jshell&gt; StrLen fn2 = new StrLen()
+
+jshell&gt; Some.some(4).&lt;Integer&gt;map(fn1)
+$.. ==&gt; [5]
+jshell&gt; Some.some(5).map(fn1)
+$.. ==&gt; [6]
+
+jshell&gt; Some&lt;Number&gt; six = Some.some(4).map(fn1).map(fn1)
+six ==&gt; [6]
+jshell&gt; six.map(fn2)
+|  Error: ...
+|  six.map(fn2)
+|  ^-----^
+
+jshell&gt; Some&lt;String&gt; mod = Some.some(&quot;CS2030S&quot;)
+mod ==&gt; [CS2030S]
+jshell&gt; mod.map(fn2)
+$.. ==&gt; [7]
+jshell&gt; mod
+mod ==&gt; [CS2030S]
+jshell&gt; mod.map(fn2).map(fn1)
+$.. ==&gt; [8]
+</code></pre></div></td></tr></table></div>
+<p>You can test your additions to <code>Some&lt;T&gt;</code> more comprehensively by running:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>javac -Xlint:rawtypes Test2.java
+java Test2
+</code></pre></div></td></tr></table></div>
+<p>There shouldn't be any compilation warning or error when you compile <code>Test2.java</code> and all tests should prints <code>ok</code>.</p>
+<h3 id="flexible-usage">Flexible Usage</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span></pre></div></td><td class="code"><div><pre><span></span><code>jshell&gt; /open A.java
+jshell&gt; /open B.java
+jshell&gt; /open C.java
+
+jshell&gt; class AtoC implements Transformer&lt;A, C&gt; {
+   ...&gt;   @Override
+   ...&gt;   public C transform(A arg) {
+   ...&gt;     return new C(arg.get());
+   ...&gt;   }
+   ...&gt; }
+jshell&gt; class BtoB implements Transformer&lt;B, B&gt; {
+   ...&gt;   @Override
+   ...&gt;   public B transform(B arg) {
+   ...&gt;     return new B(arg.get());
+   ...&gt;   }
+   ...&gt; }
+jshell&gt; class CtoA implements Transformer&lt;C, A&gt; {
+   ...&gt;   @Override
+   ...&gt;   public A transform(C arg) {
+   ...&gt;     return new A(arg.get());
+   ...&gt;   }
+   ...&gt; }
+
+jshell&gt; Some&lt;A&gt; someA = Some.some(new A(1))
+jshell&gt; Some&lt;B&gt; someB = Some.some(new B(2))
+jshell&gt; Some&lt;C&gt; someC = Some.some(new C(3))
+jshell&gt; AtoC fn1 = new AtoC()
+jshell&gt; BtoB fn2 = new BtoB()
+jshell&gt; CtoA fn3 = new CtoA()
+
+jshell&gt; someA.map(fn1)
+$.. ==&gt; [C:1]
+jshell&gt; someA.map(fn2)
+|  Error: ...
+|  someA.map(fn2)
+|  ^-------^
+jshell&gt; someA.map(fn3)
+|  Error: ...
+|  someA.map(fn3)
+|  ^-------^
+
+jshell&gt; someB.map(fn1)
+$.. ==&gt; [C:2]
+jshell&gt; someB.map(fn2)
+$.. ==&gt; [B:2]
+jshell&gt; someB.map(fn3)
+|  Error: ...
+|  someB.map(fn3)
+|  ^-------^
+
+jshell&gt; someC.map(fn1)
+$.. ==&gt; [C:3]
+jshell&gt; someC.map(fn2)
+$.. ==&gt; [B:3]
+jshell&gt; someC.map(fn3)
+$.. ==&gt; [A:3]
+</code></pre></div></td></tr></table></div>
+<p>You can test the flexibility of <code>map</code> on <code>Some&lt;T&gt;</code> more comprehensively by running:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>javac -Xlint:rawtypes Test3.java
+java Test3
+</code></pre></div></td></tr></table></div>
+<p>There shouldn't be any compilation warning or error when you compile <code>Test3.java</code> and all tests should prints <code>ok</code>.</p>
+<h2 id="task-3-jack-in-the-box">Task 3: Jack in the Box</h2>
+<p>The <code>Transformer</code> interface allows us to transform the content of the container from one type into any other type, including a <code>Some&lt;T&gt;</code>! You have seen examples above where we have a container inside a container: <code>Some.some(Some.some(0))</code>.</p>
+<p>Now, implement your own <code>Transformer</code> in a class called <code>JackInTheBox&lt;T&gt;</code> to transform an item into a <code>Some</code> containing the item. The corresponding type <code>T</code> is transformed into <code>Some&lt;T&gt;</code>. This transformer, when invoked with <code>map</code>, results in a new <code>Some</code> within the <code>Some</code>.</p>
+<h3 id="sample-usage_2">Sample Usage</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>jshell&gt; Some.some(4).map(new JackInTheBox&lt;&gt;())
+$.. ==&gt; [[4]]
+jshell&gt; Some.some(Some.some(5)).map(new JackInTheBox&lt;&gt;())
+$.. ==&gt; [[[5]]]
+</code></pre></div></td></tr></table></div>
+<p>You can test your <code>JackInTheBox&lt;T&gt;</code> more comprehensively by running:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>javac -Xlint:rawtypes Test4.java
+java Test4
+</code></pre></div></td></tr></table></div>
+<p>There shouldn't be any compilation warning or error when you compile <code>Test4.java</code> and all tests should prints <code>ok</code>.</p>
+<h2 id="check-style">Check Style</h2>
+<p>To run the style checker,</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml *.java
+</code></pre></div></td></tr></table></div>
+<p>While we try to keep the files we give conform to our style guide, in the case any of the files we gave has style problems, you do not have to correct them.</p>
+<h2 id="grading">Grading</h2>
+<p>This lab is worth 20 marks and contribute 2% to your Lab Assignment component.  The marking scheme is as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Sub-Component</th>
+<th>Marks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Correctness</td>
+<td></td>
+<td>16 marks</td>
+</tr>
+<tr>
+<td></td>
+<td><em>Test 1 related<br>Test 2 related<br>Test 3 related<br>Test 4 related</em></td>
+<td><em>4 marks<br>4 marks<br>4 marks<br>4 marks</em></td>
+</tr>
+<tr>
+<td>Style</td>
+<td></td>
+<td>4 marks</td>
+</tr>
+</tbody>
+</table>
+<p>Correctness mark will only be awarded if your code compiles for the given test files, otherwise we cannot run any tester.  While we try to give you all the possible tests, there may be some tests we missed.  You should not hardcode any test cases and you should expect potentially additional test cases.</p>
+<p>Additionally, if your code cannot compile <strong>for any reason</strong>, you will get <strong>0%</strong> of the mark for styles.</p>
+<p>We may make additional deductions for other issues or errors in your code such as run-time error, failure to follow instructions, not commenting <code>@SuppressWarning</code>, misuse of <code>@SuppressWarning</code> (<em>unnecessary, not in smallest scope, etc</em>), etc.</p>
+<div class="admonition info">
+<p class="admonition-title">Suppress Warnings</p>
+<p>If you design your code correctly, you do not need any <code>@SuppressWarnings</code>.  If you have any, you may want to check your design again.</p>
+</div>
+<h2 id="submission">Submission</h2>
+<p>To submit the lab, run the following command from the directory containing your lab 4 code.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>~cs2030s/submit-lab4
+</code></pre></div></td></tr></table></div>
+<p>Please check your repo after running the submission script to ensure that your files have been added correctly.  The URL to your repo is given after you run the submission script.</p>
+<div class="admonition danger">
+<p class="admonition-title">Do NOT Use Other Git Command</p>
+<p>While you may be familiar with git commands, please do not use them.  Please use only the submission script <code>submit-labX</code> to ensure that your submissions are recorded properly.</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright by Department of Computer Science, National University of Singapore 2023
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "toc.follow", "toc.integrate", "content.code.annotate", "content.code.copy"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>
